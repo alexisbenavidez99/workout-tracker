@@ -21,7 +21,7 @@
         "mysql2": "^2.2.5",
         "prettier": "^2.1.2",
         "sequelize": "^6.3.5",
-        "uuid": "^9.0.0"
-        "normalize.css": "^8.0.1",
+        "uuid": "^9.0.0",
+        "normalize.css": "^8.0.1"
     }
 }

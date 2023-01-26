@@ -19,8 +19,9 @@
         "express": "^4.17.1",
         "express-handlebars": "^5.2.0",
         "mysql2": "^2.2.5",
-        "normalize.css": "^8.0.1",
         "prettier": "^2.1.2",
-        "sequelize": "^6.3.5"
+        "sequelize": "^6.3.5",
+        "uuid": "^9.0.0"
+        "normalize.css": "^8.0.1",
     }
 }

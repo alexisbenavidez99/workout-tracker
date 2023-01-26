@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS fitnessUser_db;
+CREATE DATABASE fitnessUser_db;

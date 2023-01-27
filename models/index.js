@@ -1,5 +1,7 @@
 const User = require('./User');
+
 const Workout = require('./Workout');
+
 // add associations
 
 User.hasMany(Workout, {
@@ -15,4 +17,4 @@ Workout.belongsTo(User, {
 
 
 
-module.exports = { User };
+module.exports = { User, Workout };

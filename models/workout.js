@@ -20,12 +20,12 @@ Workout.init(
       allowNull: false
     },
     date: {
-        type: DataTypes.DATE,
-        allowNull: false
+      type: DataTypes.DATE,
+      allowNull: false
     },
     duration: {
-        type: DataTypes.INTEGER,
-        allowNull: true
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
     user_id: {
       type: DataTypes.INTEGER,

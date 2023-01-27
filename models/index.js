@@ -1,5 +1,7 @@
 const User = require('./User');
-const Workout = require('./workout');
+
+const Workout = require('./Workout');
+
 // add associations
 
 User.hasMany(Workout, {

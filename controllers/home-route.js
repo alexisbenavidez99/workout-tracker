@@ -7,12 +7,16 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.loggedIn) {
+    res.render('homepage'), {
+      loggedIn: req.session.loggedIn,
+    };
+  } else {
     res.render('homepage');
-    return;
   }
-
-  res.render('homepage');
 });
+
+
+
 
 // GET login
 router.get('/login', (req, res) => {
@@ -23,6 +27,7 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+
 });
 
 

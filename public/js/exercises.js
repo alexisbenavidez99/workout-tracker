@@ -1,3 +1,4 @@
+// Exercise API Call
 let muscle = 'biceps';
 $.ajax({
   method: 'GET',
@@ -11,5 +12,4 @@ $.ajax({
     console.error('Error: ', jqXHR.responseText);
   },
 });
-
 

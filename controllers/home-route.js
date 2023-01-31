@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { User } = require('../models');
+// const { User } = require('../models');
 
 
 // GET homepage
@@ -37,7 +37,11 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/profile', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
 
+  res.render('profile');
+});
 
 
 module.exports = router;

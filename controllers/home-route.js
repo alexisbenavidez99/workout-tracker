@@ -43,5 +43,10 @@ router.get('/profile', (req, res) => {
   res.render('profile');
 });
 
+// GET workout history
+router.get('/workout-history', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
 
+  res.render('workout-history');
+});
 module.exports = router;

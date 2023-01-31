@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-  <script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Longevity</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 
 
@@ -16,7 +15,7 @@
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
-    <img src="assets/longevity-logo.png" alt="">
+    <img class="logo" src="assets/longevity-logo.png" alt="">
      <!-- Navbar -->
   <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
     <div class="px-6 w-full flex flex-wrap items-center justify-between">
@@ -46,6 +45,10 @@
           </svg>
         </button>
       </div>
+
+    </nav>
+    <!-- Navbar -->
+
       <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
           <li class="nav-item">
@@ -69,10 +72,13 @@
   <main class="container container-fluid mt-5">
     <!-- Render the contents of the sub layout here -->
     {{{ body }}}
-    <script src="js/exercises.js"></script>
+    <script src="/js/exercises.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/logout.js"></script>
+    <script src="js/signup.js"></script>
   </main>
   <footer>
-      
+
   </footer>
 </body>
 

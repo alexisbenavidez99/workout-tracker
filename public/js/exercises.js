@@ -13,3 +13,7 @@ $.ajax({
   },
 });
 
+// Workout History page delete function
+$('#font-icon').click(function() {
+  $('.history-card').remove();
+});

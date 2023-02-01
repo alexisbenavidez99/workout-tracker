@@ -1,14 +1,25 @@
-const logout = async () => {
+//  logout function
+const logoutEl = document.querySelector('#signout');
+const logout = async (req, res) => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });
-
   if (response.ok) {
-    document.location.replace('/login');
+    document.location.replace('/');
   } else {
-    alert(response.statusText);
+    alert('Failed to logout');
+  }
+
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 };
-
-document.querySelector('#logout').addEventListener('click', logout);
+//  add event listener to the logout button
+if (logoutEl) {
+  logoutEl.addEventListener('click', logout);
+}

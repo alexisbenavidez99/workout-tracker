@@ -1,3 +1,4 @@
+// Exercise API Call
 let muscle = 'biceps';
 $.ajax({
   method: 'GET',
@@ -12,4 +13,7 @@ $.ajax({
   },
 });
 
-
+// Workout History page delete function
+$('#font-icon').click(function() {
+  $('.history-card').remove();
+});

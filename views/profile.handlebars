@@ -1,3 +1,4 @@
+<button id="edit-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full justfiy-center">Edit Profile</button>
 <div class="container mx-auto my-5 p-5">
     <div class="md:flex no-wrap md:-mx-2 ">
          <!-- Left Side -->
@@ -162,3 +163,50 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden" id="myModal">
+  <div class="modal-content bg-white rounded-lg p-10 w-1/2">
+    <div class="modal-header text-lg font-medium">
+      <span class="close cursor-pointer text-2xl float-right">&times;</span>
+      <h2 class="text-3xl">Edit Profile</h2>
+    </div>
+    <div class="modal-body">
+      <form class="w-full max-w-lg">
+        <div class="form-group mb-5">
+          <label for="imageUrl" class="block text-gray-700 font-medium mb-2">Profile Image URL</label>
+          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="imageUrl">
+        </div>
+        <div class="form-group mb-5">
+          <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
+          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="firstName">
+        </div>
+        <div class="form-group mb-5">
+          <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
+          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="lastName">
+        </div>
+        <div class="form-group mb-5">
+          <label for="nickname" class="block text-gray-700 font-medium mb-2">Nickname</label>
+          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="nickname">
+        </div>
+        <div class="form-group mb-5">
+          <label for="bio" class="block text-gray-700 font-medium mb-2">Bio</label>
+          <textarea class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="bio" rows="3"></textarea>
+        </div>
+        <div class="form-group mb-5">
+          <label for="weight" class="block text-gray-700 font-medium mb-2">Weight</label>
+          <input type="number" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="weight">
+        </div>
+        <div class="form-group mb-5">
+          <label for="emergencyContact" class="block text-gray-700 font-medium mb-2">Emergency Contact</label>
+          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="emergency">
+        </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button id="save-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+          <button id="close-button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
+        </div>
+    </div>
+</div>
+

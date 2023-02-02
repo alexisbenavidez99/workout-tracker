@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -44,6 +43,7 @@ router.post('/login', async (req, res) => {
       res
         .status(400)
         .json({ message: 'Incorrect username or password, please try again' });
+      alert('Incorrect username or password, please try again');
       return;
     }
 

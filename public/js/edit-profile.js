@@ -1,6 +1,6 @@
 
-  const closeButtons = document.querySelector('.close');
-  const saveProfile = document.querySelector('#save-profile');
+const closeButtons = document.querySelector('.close');
+const saveProfile = document.querySelector('#save-profile');
 
 
 const editProfile = async (event) => {

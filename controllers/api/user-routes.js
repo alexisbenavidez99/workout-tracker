@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, UserProfile } = require('../../models');
 
 //  create a new user
 router.post('/', async (req, res) => {
@@ -43,7 +43,6 @@ router.post('/login', async (req, res) => {
       res
         .status(400)
         .json({ message: 'Incorrect username or password, please try again' });
-      alert('Incorrect username or password, please try again');
       return;
     }
 
@@ -57,7 +56,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-    // declare session variables
+      // declare session variables
       req.session.user_id = userData.id;
       req.session.username = userData.username;
       req.session.loggedIn = true;
@@ -84,5 +83,60 @@ router.post('/logout', (req, res) => {
   }
 });
 
-module.exports = router;
+// user profile creation
 
+router.post('/profile', async (req, res) => {
+  try {
+    const userProfileData = await UserProfile.create(
+      {
+        username: req.session.username,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        curent_weight: req.body.current_weight,
+        profile_image: req.body.profile_image,
+        nickname: req.body.nickname,
+        bio: req.body.bio,
+        height: req.body.height,
+        emergency_contact_number: req.body.emergency_contact_number,
+        birthday: req.body.birthday,
+        join_date: req.body.join_date,
+        gender: req.body.gender,
+        email: req.body.email,
+      });
+    res.status(200).json(userProfileData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+router.put('/profile/:username', async (req, res) => {
+  try {
+    const userProfileData = await UserProfile.update(
+      {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        curent_weight: req.body.current_weight,
+        profile_image: req.body.profile_image,
+        nickname: req.body.nickname,
+        bio: req.body.bio,
+        height: req.body.height,
+        emergency_contact_number: req.body.emergency_contact_number,
+        birthday: req.body.birthday,
+        gender: req.body.gender,
+      },
+      {
+        where: {
+          username: req.params.username,
+        },
+      });
+    res.status(200).json(userProfileData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+
+
+module.exports = router;

@@ -1,3 +1,4 @@
+
 <button id="edit-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full justfiy-center">Edit Profile</button>
 <div class="container mx-auto my-5 p-5">
     <div class="md:flex no-wrap md:-mx-2 ">
@@ -7,22 +8,26 @@
             <div class="bg-white p-3 border-t-4 border-green-400">
                 <div class="image overflow-hidden">
                     <img class="h-auto w-full mx-auto"
-                        src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+                        src="{{userProfile.profile_image}}"
                         alt="">
                 </div>
-                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
-                <h3 class="text-gray-600 font-lg text-semibold leading-6">Gym Warrior</h3>
-                <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">My Goal is to figure out how much I weigh in modern day units.</p>
+                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{userProfile.first_name}} {{userProfile.last_name}}</h1>
+                <h3 class="text-gray-600 font-lg text-semibold leading-6">{{userProfile.nickname}}</h3>
+                <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{userProfile.bio}}</p>
                 <ul
                     class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                     <li class="flex items-center py-3">
                         <span>Status</span>
-                        <span class="ml-auto"><span
-                                class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                        <span class="ml-auto">
+                            {{#if loggedIn}}
+                            <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
+                            {{else}}
+                            <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">Inactive</span></span>
+                            {{/if}}
                     </li>
                     <li class="flex items-center py-3">
                         <span>Member since</span>
-                        <span class="ml-auto">Nov 07, 2016</span>
+                        <span class="ml-auto">{{userProfile.join_date}}</span>
                     </li>
                 </ul>
             </div>
@@ -88,37 +93,37 @@
                     <div class="grid md:grid-cols-2 text-sm">
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">First Name</div>
-                            <div class="px-4 py-2">Jane</div>
+                            <div class="px-4 py-2">{{userProfile.first_name}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Last Name</div>
-                            <div class="px-4 py-2">Doe</div>
+                            <div class="px-4 py-2">{{userProfile.last_name}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Gender</div>
-                            <div class="px-4 py-2">Female</div>
+                            <div class="px-4 py-2">{{userProfile.gender}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Emergency Contact No.</div>
-                            <div class="px-4 py-2">+01189998819991197253</div>
+                            <div class="px-4 py-2">{{userProfile.emergency_contact_number}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Current Weight</div>
-                            <div class="px-4 py-2">5 Talent</div>
+                            <div class="px-4 py-2">{{userProfile.curent_weight}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Height</div>
-                            <div class="px-4 py-2">2 Spat</div>
+                            <div class="px-4 py-2">{{userProfile.height}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Email</div>
                             <div class="px-4 py-2">
-                                <a class="text-blue-800" href="mailto:jane@example.com">email@example.com</a>
+                                <a class="text-blue-800" href="mailto:jane@example.com">{{userProfile.email}}</a>
                             </div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Birthday</div>
-                            <div class="px-4 py-2">Feb 06, 1998</div>
+                            <div class="px-4 py-2">{{userProfile.birthday}}</div>
                         </div>
                     </div>
                 </div>
@@ -165,6 +170,7 @@
 </div>
 
 
+
 <div class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden" id="myModal">
   <div class="modal-content bg-white rounded-lg p-10 w-1/2">
     <div class="modal-header text-lg font-medium">
@@ -175,39 +181,43 @@
       <form class="w-full max-w-lg">
         <div class="form-group mb-5">
           <label for="imageUrl" class="block text-gray-700 font-medium mb-2">Profile Image URL</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="imageUrl">
+          <input type="text" value="{{userProfile.profile_image}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="imageUrl">
         </div>
         <div class="form-group mb-5">
           <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="firstName">
+          <input type="text" value="{{userProfile.first_name}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="firstName">
         </div>
         <div class="form-group mb-5">
           <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="lastName">
+          <input type="text" value="{{userProfile.last_name}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="lastName">
         </div>
         <div class="form-group mb-5">
           <label for="nickname" class="block text-gray-700 font-medium mb-2">Nickname</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="nickname">
+          <input type="text" value="{{userProfile.nickname}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="nickname">
         </div>
         <div class="form-group mb-5">
           <label for="bio" class="block text-gray-700 font-medium mb-2">Bio</label>
-          <textarea class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="bio" rows="3"></textarea>
+          <textarea  class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="bio" placeholder="{{userProfile.bio}}" rows="3"></textarea>
         </div>
         <div class="form-group mb-5">
           <label for="weight" class="block text-gray-700 font-medium mb-2">Weight</label>
-          <input type="number" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="weight">
+          <input type="number" value="{{userProfile.curent_weight}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="weight">
         </div>
         <div class="form-group mb-5">
           <label for="height" class="block text-gray-700 font-medium mb-2">Height</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="height">
+          <input type="text" value="{{userProfile.height}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="height">
         </div>
         <div class="form-group mb-5">
           <label for="emergencyContact" class="block text-gray-700 font-medium mb-2">Emergency Contact</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="emergency">
+          <input type="text" value="{{userProfile.emergency_contact_number}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="emergency">
         </div>
         <div class="form-group mb-5">
           <label for="birthday" class="block text-gray-700 font-medium mb-2">Birthday</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="birthday">
+          <input type="text" value="{{userProfile.birthday}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="birthday">
+        </div>
+        <div class="form-group mb-5">
+          <label for="weightlossgoal" class="block text-gray-700 font-medium mb-2">Weight loss goal</label>
+          <input type="text" value="{{userProfile.weight_loss_goal}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="birthday">
         </div>
         </form>
         </div>

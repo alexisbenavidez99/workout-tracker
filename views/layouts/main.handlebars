@@ -55,7 +55,7 @@
       <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
           <li class="nav-item">
-            <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="profile" href="/profile" data-mdb-ripple="true" data-mdb-ripple-color="light">My Profile</a>
+            <button class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="profile" data-mdb-ripple="true" data-mdb-ripple-color="light">My Profile</button>
           </li>
           <li class="nav-item">
             <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="Build" href="" data-mdb-ripple="true" data-mdb-ripple-color="light">Build a Workout</a>
@@ -63,9 +63,19 @@
           <li class="nav-item">
             <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="History" href="/workout-history" data-mdb-ripple="true" data-mdb-ripple-color="light">Workout History</a>
           </li>
+          {{#if loggedIn}}
           <li class="nav-item mb-2 lg:mb-0">
             <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="signout" href="/" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign Out</a>
           </li>
+          {{else}}
+          <li class="nav-item mb-2 lg:mb-0">
+            <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="signin" href="/login" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign In</a>
+          </li>
+          <li class="nav-item mb-2 lg:mb-0">
+            <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="signup" href="/signup" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign Up</a>
+          </li>
+          {{/if}}
+          
         </ul>
       </div>
     </div>
@@ -78,8 +88,8 @@
     <script src="/js/exercises.js"></script>
     <script src="/js/login.js"></script>
     <script src="/js/logout.js"></script>
-    <script src="js/signup.js"></script>
-    <script src="js/edit-profile.js"></script>
+    <script src="/js/signup.js"></script>
+    <script src="/js/edit-profile.js"></script>
   </main>
   <footer>
 

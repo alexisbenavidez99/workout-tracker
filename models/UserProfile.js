@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class UserProfile extends Model {
 
@@ -12,13 +13,22 @@ UserProfile.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      },
-      allowNull: false
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    nickname: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    bio: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    profile_image: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     first_name: {
       type: DataTypes.STRING,
@@ -32,21 +42,34 @@ UserProfile.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    height : {
-      type: DataTypes.DECIMAL(5, 2),
+    height: {
+      type: DataTypes.INTEGER,
       allowNull: true,
     },
-    current_weight: {
+    curent_weight: {
       type: DataTypes.DECIMAL(5, 2),
       allowNull: true,
     },
     weight_loss_goal: {
       type: DataTypes.DECIMAL(5, 2),
-      allowNull: false,
-    },
-    workout_history: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
+    },
+    birthday: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    join_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+
     },
   },
   {
@@ -55,5 +78,8 @@ UserProfile.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'user_profile',
+
   }
 );
+
+module.exports = UserProfile;

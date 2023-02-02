@@ -1,8 +1,5 @@
 const router = require('express').Router();
 
-// const { User } = require('../models');
-
-
 // GET homepage
 router.get('/', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -15,9 +12,6 @@ router.get('/', (req, res) => {
   }
 });
 
-
-
-
 // GET login
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -25,11 +19,8 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
-
 });
-
 
 // GET signup
 router.get('/signup', (req, res) => {
@@ -38,19 +29,16 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('signup');
 });
 
 router.get('/profile', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
   res.render('profile');
 });
 
 router.get('/workout-history', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
   res.render('workout-history');
 });
 

@@ -44,3 +44,16 @@
     max-width: 20%;
     padding-bottom: 1px;
 }
+
+#font-icon {
+    cursor: pointer;
+}
+
+#font-icon:hover {
+    text-shadow: 2px 3px 15px #B64391;
+}
+
+.modal-body {
+    overflow-y: scroll;
+    max-height: 70vh;
+  }

@@ -20,15 +20,31 @@ UserProfile.init(
       },
       allowNull: false
     },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    emergency_contact_number: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    height : {
+      type: DataTypes.DECIMAL(5, 2),
+      allowNull: true,
+    },
     current_weight: {
       type: DataTypes.DECIMAL(5, 2),
-      allowNull: false,
+      allowNull: true,
     },
     weight_loss_goal: {
       type: DataTypes.DECIMAL(5, 2),
       allowNull: false,
     },
-    favorite_exercises: {
+    workout_history: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },

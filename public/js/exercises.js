@@ -1,3 +1,4 @@
+// Exercise API Call
 let muscle = 'biceps';
 $.ajax({
   method: 'GET',
@@ -12,4 +13,20 @@ $.ajax({
   },
 });
 
+// // Workout History page delete function
+// $('#font-icon').click(function() {
+//   $('.history-card').remove();
+// });
 
+// querySelectorAll is used to select all the elements with the #font-icon id.
+// The event listener click is then added to each button, and when the button is clicked,
+// it finds the nearest ancestor element with the .histroy-card class and removes it using the remove method.
+
+const deleteButtons = document.querySelectorAll('#font-icon');
+
+deleteButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.history-card');
+    card.remove();
+  });
+});

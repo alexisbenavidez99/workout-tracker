@@ -3,12 +3,20 @@
   <div class="mb-3 xl:w-96">
     <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
       <input type="search" class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
-      <button class="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="button" id="button-addon3">Search</button>
+      <button class="btn inline-block px-4 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="button" id="button-addon3">Search</button>
     </div>
   </div>
 </div>
-<div class='flex items-center justify-center min-h-screen from-purple-100 via-red-300 to-indigo-500 bg-gradient-to-br'>
-    <div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
+<div class='flex flex-end items-center justify-center min-h-screen from-purple-100 via-red-300 to-indigo-500 bg-gradient-to-br'>
+
+<aside class="ml-36 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Your Workout</h5>
+        <h8 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">Your workout will be added here as you build it</h8>
+    {{!-- append excercises inside this aside tag --}}
+    <p class="font-normal text-gray-700 dark:text-gray-400"></p>
+</aside>
+
+    <div class=' w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
         <h1 class="text-xl mb-10 text-center">What kind of excercise are you looking for?</h1>
         <!-- THE ACCORDION -->
         <details class="w-full bg-white border border-blue-500 cursor-pointer mb-3">
@@ -185,6 +193,9 @@
                     </label>
                 </li>
         </details>
+        <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+  Search
+        </button>
         <!-- THE CSS -->
         <style>
                 details summary::-webkit-details-marker {

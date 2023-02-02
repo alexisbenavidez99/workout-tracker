@@ -10,7 +10,7 @@
                         src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
                         alt="">
                 </div>
-                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Jane Doe</h1>
+                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{UserProfile.first_name}}{{UserProfile.last_name}}</h1>
                 <h3 class="text-gray-600 font-lg text-semibold leading-6">Gym Warrior</h3>
                 <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">My Goal is to figure out how much I weigh in modern day units.</p>
                 <ul
@@ -88,37 +88,37 @@
                     <div class="grid md:grid-cols-2 text-sm">
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">First Name</div>
-                            <div class="px-4 py-2">Jane</div>
+                            <div class="px-4 py-2">{{UserProfile.first_name}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Last Name</div>
-                            <div class="px-4 py-2">Doe</div>
+                            <div class="px-4 py-2">{{UserProfile.last_name}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Gender</div>
-                            <div class="px-4 py-2">Female</div>
+                            <div class="px-4 py-2">{{UserProfile.gender}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Emergency Contact No.</div>
-                            <div class="px-4 py-2">+01189998819991197253</div>
+                            <div class="px-4 py-2">{{UserProfile.emergency_contact_number}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Current Weight</div>
-                            <div class="px-4 py-2">5 Talent</div>
+                            <div class="px-4 py-2">{{UserProfile.current_weight}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Height</div>
-                            <div class="px-4 py-2">2 Spat</div>
+                            <div class="px-4 py-2">{{UserProfile.height}}</div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Email</div>
                             <div class="px-4 py-2">
-                                <a class="text-blue-800" href="mailto:jane@example.com">email@example.com</a>
+                                <a class="text-blue-800" href="mailto:jane@example.com">{{User.email}}</a>
                             </div>
                         </div>
                         <div class="grid grid-cols-2">
                             <div class="px-4 py-2 font-semibold">Birthday</div>
-                            <div class="px-4 py-2">Feb 06, 1998</div>
+                            <div class="px-4 py-2">{{UserProfile.birthday}}</div>
                         </div>
                     </div>
                 </div>

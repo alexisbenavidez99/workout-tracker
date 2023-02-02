@@ -28,6 +28,10 @@ UserProfile.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     emergency_contact_number: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -48,6 +52,10 @@ UserProfile.init(
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true,
     },
+    birthday: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    }
   },
   {
     sequelize,

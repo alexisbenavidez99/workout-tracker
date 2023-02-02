@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, UserProfile } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //  create a new user
 router.post('/', async (req, res) => {
@@ -110,7 +111,8 @@ router.post('/profile', async (req, res) => {
   }
 });
 
-router.put('/profile/:username', async (req, res) => {
+// update user profile
+router.put('/profile/:username', withAuth, async (req, res) => {
   try {
     const userProfileData = await UserProfile.update(
       {

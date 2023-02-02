@@ -38,6 +38,10 @@ UserProfile.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
     emergency_contact_number: {
       type: DataTypes.STRING,
       allowNull: true,

@@ -2,18 +2,12 @@ const { UserProfile } = require('../models');
 
 const router = require('express').Router();
 
-// const { User } = require('../models');
-
-
 // GET homepage
 router.get('/', (req, res) => {
   res.render('homepage', {
     loggedIn: req.session.loggedIn,
   });
 });
-
-
-
 
 // GET login
 router.get('/login', (req, res) => {
@@ -22,11 +16,8 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
-
 });
-
 
 // GET signup
 router.get('/signup', (req, res) => {
@@ -35,7 +26,6 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('signup');
 });
 // GET profile
@@ -65,8 +55,13 @@ router.get('/profile/:username', (req, res) => {
 
 router.get('/workout-history', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
   res.render('workout-history');
+});
+
+router.get('/builder', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+
+  res.render('builder');
 });
 
 module.exports = router;

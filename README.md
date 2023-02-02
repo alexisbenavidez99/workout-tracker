@@ -2,6 +2,7 @@
 
 ## Description
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A full-stack application that allows users to create a profile, curate workout plans, learn new exercises with instructional descriptions of exercises they choose, and keep track of their past workouts. This application helps users on their health journey by creating a workout plan that is comfortable for them, learn new exercises to challenge themselves, and be able to refer to while exercising to stay on track to make achieving their goals easier.
 ## Built With
 - JavaScript
@@ -12,6 +13,7 @@ A full-stack application that allows users to create a profile, curate workout p
 - Sequelize
 - Handlebars.js
 - Tailwind CSS
+- Exercises API
 
 ## Usage
 - When you click the "LET'S WORKOUT" button on the landing page, you will be redirected to the login page. If you have not created an account yet, you have the option to create an account and will be able to signup.

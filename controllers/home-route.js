@@ -1,5 +1,6 @@
 const { UserProfile } = require('../models');
 
+
 const router = require('express').Router();
 
 // GET homepage

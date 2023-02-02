@@ -13,11 +13,6 @@ $.ajax({
   },
 });
 
-// // Workout History page delete function
-// $('#font-icon').click(function() {
-//   $('.history-card').remove();
-// });
-
 // querySelectorAll is used to select all the elements with the #font-icon id.
 // The event listener click is then added to each button, and when the button is clicked,
 // it finds the nearest ancestor element with the .histroy-card class and removes it using the remove method.

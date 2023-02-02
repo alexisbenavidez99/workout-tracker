@@ -1,3 +1,5 @@
+const createProfileButton = document.querySelector('#create-profile');
+
 const signupHandler = async (event) => {
   event.preventDefault();
   console.log('signupHandler');
@@ -11,7 +13,7 @@ const signupHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      alert('You are now signed up! Please log in.');
+      alert('You are now signed up! Logging you in...');
       document.location.replace('/login');
     } else {
       // alert response;
@@ -29,8 +31,7 @@ const signupHandler = async (event) => {
   const height = '0';
   const emergency_contact_number = 'Whats a phone number?';
   const birthday = 'July 31, 1980';
-  const join_date= new Date().toLocaleString();
-
+  const join_date= new Date().toLocaleDateString();
   // go ahead and create an default profile for the user
 
   const response = await fetch('/api/users/profile', {
@@ -50,5 +51,6 @@ const signupHandler = async (event) => {
 
 
 
-
-document.querySelector('#create-profile').addEventListener('click', signupHandler);
+if(createProfileButton){
+  createProfileButton.addEventListener('click', signupHandler);
+}

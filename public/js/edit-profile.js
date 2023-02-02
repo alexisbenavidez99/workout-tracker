@@ -1,6 +1,8 @@
 
 const closeButtons = document.querySelector('.close');
 const saveProfile = document.querySelector('#save-profile');
+const closeButton = document.querySelector('#close-button');
+
 const username= sessionStorage.getItem('username');
 const myProfileHandler = async (event) => {
   event.preventDefault();
@@ -54,7 +56,14 @@ const savedButtonHandler = async (event) => {
     }
   }
 };
+if (closeButton) {
+  closeButton.addEventListener('click', closeModals);
+}
 
-document.getElementById('close-button').addEventListener('click', closeModals);
-closeButtons.addEventListener('click', closeModals);
-saveProfile.addEventListener('click', savedButtonHandler);
+if (closeButtons) {
+  closeButtons.addEventListener('click', closeModals);
+}
+
+if (saveProfile) {
+  saveProfile.addEventListener('click', savedButtonHandler);
+}

@@ -1,3 +1,5 @@
+const loginButton = document.querySelector('#login-button');
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const username = document.querySelector('#username-login').value.trim();
@@ -21,6 +23,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('#login-button')
-  .addEventListener('click', loginFormHandler);
+if (loginButton) {
+  loginButton.addEventListener('click', loginFormHandler);
+}

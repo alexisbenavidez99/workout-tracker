@@ -1,152 +1,158 @@
+<style>
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Quicksand', 'Helvetica Neue', Arial, sans-serif;
+    }
 
- 
+    .bg {
+        text-align: center;
+        background-image: url(./assets/Longevity_header.jpeg);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100vw;
+    }
 
-  
-
-
-    
-   
-
- <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family:'Quicksand','Helvetica Neue', Arial, sans-serif;
-        }
-
-        .bg {
-            text-align: center;
-            background-image: url(./assets/Longevity_header.jpeg);
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-
-        img {
-            width: 100%;
-            position: relative;
-        }
-        
-
-        .button {
-            border: none;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 20px;
-            padding: 30px 80px;
-            border-radius: 300px;
-            text-transform: uppercase;
-            margin-top: 25%;
-            background-color: white;
-        }
-
-        .button:hover {
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-        }
-
-        .button:active {
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-        }
-
-        button:focus {
-            outline:0;}
+    img {
+        width: 100%;
+        position: relative;
+    }
 
 
-        h2 {
-            margin: auto;
-            font-size: 30px;
-        }
-        h3 {
-            transform: scale(0.94);
-            animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
-        }
-        @keyframes scale {
-            100% {
-                transform: scale(1);
-            }
-        }
-        span {
-           display: inline-block;
-           opacity: 0;
-           filter: blur(4px); 
-        }
-        span:nth-child(1) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        span:nth-child(2) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        span:nth-child(3) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        span:nth-child(4) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        span:nth-child(5) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        span:nth-child(6) {
-            animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
-        }
-        @keyframes fade-in {
-            100% {
-                opacity: 1;
-                filter: blur(0);
-            }
-        }
+    .button {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 30px 80px;
+        border-radius: 300px;
+        text-transform: uppercase;
+        margin-top: 25%;
+        background-color: white;
+    }
 
-        p {
-            color: white;
-        }
+    .button:hover {
+        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
 
+    .button:active {
+        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+
+    button:focus {
+        outline: 0;
+    }
+
+
+    h2 {
+        margin: auto;
+        font-size: 30px;
+    }
+
+    h3 {
+        transform: scale(0.94);
+        animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    }
+
+    @keyframes scale {
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    span {
+        display: inline-block;
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+    span:nth-child(1) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    span:nth-child(2) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    span:nth-child(3) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    span:nth-child(4) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    span:nth-child(5) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    span:nth-child(6) {
+        animation: fade-in 0.8s 1.8s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    @keyframes fade-in {
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    p {
+        color: white;
+        width: 100vw;
+    }
 </style>
 </head>
 
 <body>
-   
+
     <div class="bg">
-       <a href="/login"> <button class="button"><h2>Let's Workout</h2></button></a>
+        <a href="/login"> <button class="button">
+                <h2>Let's Workout</h2>
+            </button></a>
 
 
 
-\	<div class="container-fluid">
-    <div class="row promo">
-            <div class="col-md-4 promo-item item-1">
-                <h3>
-                    <span>feel</span>
-                    <span>good.</span>
-                </h3>
+        <div class="container-fluid">
+            <div class="row promo">
+                <div class="col-md-4 promo-item item-1">
+                    <h3>
+                        <span>feel</span>
+                        <span>good.</span>
+                    </h3>
+                </div>
+                <div class="col-md-4 promo-item item-2">
+                    <h3>
+                        <span>look</span>
+                        <span>good.</span>
+                    </h3>
+                </div>
+                <div class="col-md-4 promo-item item-3">
+                    <h3>
+                        <span>for</span>
+                        <span>life.</span>
+                    </h3>
+                </div>
             </div>
-            <div class="col-md-4 promo-item item-2">
-                <h3>
-                    <span>look</span>
-                    <span>good.</span>
-                </h3>
+        </div>
+        {{!-- Footer --}}
+        <div class="small-print">
+            <div class="container">
+                <p>Made With ❤️ By AADN</p>
             </div>
-            <div class="col-md-4 promo-item item-3">
-                <h3>
-                    <span>for</span>
-                    <span>life.</span>
-                </h3>
-            </div>
-    </div>
-</div>
-{{!-- Footer --}}
-<div class="small-print">
-        <div class="container">
-            <p>Made With ❤️ By AADN</p>
         </div>
     </div>
-</div>
 
-    
+
 
 
 </body>
-</html>
 
+</html>

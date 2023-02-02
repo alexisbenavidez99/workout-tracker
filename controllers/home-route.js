@@ -42,4 +42,10 @@ router.get('/workout-history', (req, res) => {
   res.render('workout-history');
 });
 
+router.get('/builder', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+
+  res.render('builder');
+});
+
 module.exports = router;

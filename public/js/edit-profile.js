@@ -2,6 +2,10 @@
 const closeButtons = document.querySelector('.close');
 const saveProfile = document.querySelector('#save-profile');
 const closeButton = document.querySelector('#close-button');
+const editProfieButton = document.querySelector('#edit-profile');
+const myProfileButton = document.querySelector('#profile');
+const modal = document.querySelector('#myModal');
+
 
 const username= sessionStorage.getItem('username');
 const myProfileHandler = async (event) => {
@@ -9,22 +13,25 @@ const myProfileHandler = async (event) => {
   console.log('myProfileHandler');
   document.location.replace(`/profile/${username}`);
 };
-
-document.querySelector('#profile').addEventListener('click', myProfileHandler);
-
+if(myProfileButton){
+  myProfileButton.addEventListener('click', myProfileHandler);
+}
 
 const editProfile = async (event) => {
   event.preventDefault();
   document.querySelector('#myModal').classList.toggle('hidden');
 };
 
-document
-  .querySelector('#edit-profile')
-  .addEventListener('click', editProfile);
+if (editProfieButton) {
+  editProfieButton.addEventListener('click', editProfile);
+}
+
 const closeModals = async (event) => {
   event.preventDefault();
   console.log('close');
-  document.querySelector('#myModal').classList.toggle('hidden');
+  if(modal){
+    modal.classList.toggle('hidden');
+  }
 };
 
 const savedButtonHandler = async (event) => {
@@ -40,22 +47,23 @@ const savedButtonHandler = async (event) => {
   const height = document.querySelector('#height').value.trim();
   const emergency_contact_number = document.querySelector('#emergency').value.trim();
   const birthday = document.querySelector('#birthday').value.trim();
+  const weight_goal = document.querySelector('#weight-goal').value.trim();
 
 
   // write a post route to udate the users profile
-  if (profile_image && first_name && last_name && nickname && bio && current_weight && height && emergency_contact_number && birthday) {
-    const response = await fetch(`/api/users/profile/${username}`, {
-      method: 'PUT',
-      body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.ok) {
-      document.location.replace(`/profile/${username}`);
-    } else {
-      alert('Failed to update profile.');
-    }
+
+  const response = await fetch(`/api/users/profile/${username}`, {
+    method: 'PUT',
+    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, weight_goal }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  if (response.ok) {
+    document.location.replace(`/profile/${username}`);
+  } else {
+    alert('Failed to update profile.');
   }
 };
+
 if (closeButton) {
   closeButton.addEventListener('click', closeModals);
 }

@@ -1,63 +1,40 @@
-{{!-- <body>
-    <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-black-600 p-5">Workout History</h1>
-  {{!-- Workout History Cards --}}
-    <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
-  <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4">
-    <div class="mb-8">
-      <div class="text-gray-900 font-bold text-xl mb-2">Abdominals</div>
-      <p class="text-gray-700 text-base">Bottoms Up 4 x 12</p>
-      <p class="text-gray-700 text-base">Spider Crawl 4 x 12</p>
-      <p class="text-gray-700 text-base">Cocoons 4 x 10</p>
-      <p class="text-gray-700 text-base">Decline Reverse Crunch 4 x 10</p>
-    </div>
-    <div class="flex items-center relative">
-      <img class="w-10 h-10 rounded-full mr-4" src="https://avatars.githubusercontent.com/u/113260005?v=4" alt="Avatar of user">
-      <div class="text-sm">
-        <p class="text-gray-900 leading-none">Alexis Benavidez</p>
-        <p class="text-gray-600">Aug 18</p>
-        <span id="font-icon"><i class="fa-solid fa-trash absolute bottom-0 right-0"></i></span>
+<button id="workoutHistoryModalButton"
+  class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-5 rounded-lg shadow-lg focus:outline-none focus:shadow-outline">
+  Add Completed Workout
+</button>
+<div class="fixed top-0 left-0 w-full h-full overflow-auto bg-gray-900 bg-opacity-75 hidden" id="workout-history-modal">
+  <div class="modal-dialog modal-dialog-centered w-11/12 max-w-lg mx-auto rounded-lg bg-white p-8">
+      <div class="mb-5">
+        <label for="workoutName" class="block text-gray-700 font-medium mb-2">Workout Name</label>
+        <input type="text" class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutName">
+      </div>
+       <div class="mb-5">
+        <label for="exercise" class="block text-gray-700 font-medium mb-2">Exercises ex"spider crawl 4 x 12"</label>
+        <textarea class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="exercise" rows="3"></textarea>
+      </div>
+      <div class="mb-5">
+        <label for="workoutDate" class="block text-gray-700 font-medium mb-2">Workout Date</label>
+        <input type="date" class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutDate">
+      </div>
+      <div class="mb-5">
+        <button id="save-workout"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Save</button>
+        <button id="close-workout"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Close</button>
+      </div>
+  </div>
+</div >
+<div id="addWorkout">
+  {{#each workouts as |workout|}}
+  <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
+    <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4">
+      <div class="mb-8">
+        <div class="text-gray-900 font-bold text-xl mb-2">{{name}}</div>
+        <p class="text-gray-700 text-base">{{type_exercise}}</p>
+        <p class="text-gray-700 text-base">Date: {{date}}</p>
+        
       </div>
     </div>
   </div>
-</div> --}}
-
-<!-- Workout History View -->
-<div class="container mt-5">
-  <h1 class="text-center">Workout History</h1>
-  <p class="text-center">Log your workout here</p>
-  <button class="btn btn-primary" id="open-modal-button">Log Workout</button>
+  {{/each}}
 </div>
-
-<div class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden" id="workoutModal">
-  <div class="modal-content bg-white rounded-lg p-10 max-w-sm w-full md:w-1/2">
-    <div class="modal-header text-lg font-medium w-full">
-      <span class="close cursor-pointer text-2xl float-right">&times;</span>
-      <h2 class="text-3xl">Log Your Workout</h2>
-    </div>
-    <div class="modal-body">
-      <form class="w-full max-w-lg">
-        <div class="form-group mb-5">
-          <label for="workoutName" class="block text-gray-700 font-medium mb-2">Workout Name</label>
-          <input type="text" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutName">
-        </div>
-        <div class="form-group mb-5">
-          <label for="workoutDescription" class="block text-gray-700 font-medium mb-2">Workout Description</label>
-          <textarea class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutDescription" rows="3"></textarea>
-        </div>
-        <div class="form-group mb-5">
-          <label for="workoutDate" class="block text-gray-700 font-medium mb-2">Workout Date</label>
-          <input type="date" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutDate">
-        </div>
-        <div class="form-group mb-5">
-          <label for="workoutTime" class="block text-gray-700 font-medium mb-2">Workout Time</label>
-          <input type="time" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutTime">
-        </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-      <button id="save-workout" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
-      <button id="close-workout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-    </div>
-  </div>
-</div>
-

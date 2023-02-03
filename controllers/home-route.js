@@ -43,7 +43,7 @@ router.get('/profile/:username', withAuth, (req, res) => {
 
       const userProfile = dbUserProfileData.get({ plain: true });
 
-      res.render('profile', {
+      res.render('profile',{
         userProfile,
         loggedIn: req.session.loggedIn,
       });

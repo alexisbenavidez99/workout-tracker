@@ -24,12 +24,12 @@ const signupHandler = async (event) => {
   const profile_image = 'https://www.looper.com/img/gallery/harry-potter-is-getting-something-huge-in-2022/intro-1625353292.jpg';
   const first_name = 'Harry';
   const last_name = 'Potter';
-  const nickname = 'The Boy Who Lived ';
-  const bio = 'Hero of the Wizarding World, Harry Potter is the only child and son of James and Lily Potter (née Evans), both members of the original Order of the Phoenix. Harry was also the first and only child to survive the killing curse, Avada Kedavra, which was meant for him. He is also the only known person to have ever defeated Lord Voldemort, who was the most powerful dark wizard of all time. Harry is also the only known person to have ever returned from the dead.';
+  const nickname = 'The Buff Boy Who Lived';
+  const bio = 'Hey there, it\'s your pal Harry Potter. You might have heard of me, the one and only child to survive the killing curse, Avada Kedavra. I\'m also the hero of the Wizarding World, having defeated the most powerful dark wizard of all time, Lord Voldemort. And let me tell you, it wasn\'t easy, but I did it. Oh, and did I mention I\'m the only known person to have ever returned from the dead? Yeah, pretty wild, right?';
   const gender= 'not specified';
   const current_weight = '0';
   const height = '0';
-  const emergency_contact_number = 'Whats a phone number?';
+  const emergency_contact_number = 'Hedwig';
   const birthday = 'July 31, 1980';
   const join_date= new Date().toLocaleDateString();
 

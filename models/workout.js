@@ -15,15 +15,23 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    type: {
+    type_exercise: {
       type: DataTypes.STRING,
       allowNull: false
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     },
-    duration: {
+    sets: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    reps: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    weight: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

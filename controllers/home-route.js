@@ -1,4 +1,4 @@
-const { UserProfile } = require('../models');
+const { UserProfile, Workout } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
@@ -54,11 +54,28 @@ router.get('/profile/:username', withAuth, (req, res) => {
 });
 
 router.get('/workout-history', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  res.render('workout-history', {
-    loggedIn: req.session.loggedIn,
-  });
+  // find all workouts posted by the user
+  // render the workout history page
+  Workout.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+  })
+    .then(dbWorkoutData => {
+      const workouts = dbWorkoutData.map(workout => workout.get({ plain: true }));
+      res.render('workout-history', {
+        workouts,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
 });
+
+
+
+
 
 router.get('/builder', (req, res) => {
   // If the user is already logged in, redirect the request to another route

@@ -13,6 +13,7 @@ const myProfileHandler = async (event) => {
   console.log('myProfileHandler');
   document.location.replace(`/profile/${username}`);
 };
+
 if(myProfileButton){
   myProfileButton.addEventListener('click', myProfileHandler);
 }

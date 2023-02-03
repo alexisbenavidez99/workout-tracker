@@ -41,9 +41,10 @@ const signupHandler = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
+    sessionStorage.setItem('username', username);
     document.location.replace(`/profile/${username}`);
   } else {
-    alert('Failed to update profile.');
+    return;
   }
 
 };

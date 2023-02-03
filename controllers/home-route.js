@@ -56,13 +56,18 @@ router.get('/profile/:username',(req, res) => {
 
 router.get('/workout-history', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  res.render('workout-history');
+  res.render('workout-history', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/builder', (req, res) => {
   // If the user is already logged in, redirect the request to another route
 
-  res.render('builder');
+  res.render('builder', {
+    loggedIn: req.session.loggedIn,
+  });
 });
+
 
 module.exports = router;

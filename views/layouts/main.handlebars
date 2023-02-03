@@ -28,6 +28,7 @@
           aria-controls="navbarSupportedContentY"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          id="hamburger-btn"
         >
           <svg
             aria-hidden="true"
@@ -50,8 +51,10 @@
     <!-- Navbar -->
 
       <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
-        <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
+
+        <ul class="navbar-nav mr-auto lg:flex lg:flex-row sm:hidden hidden" id="navbar-ul">
           {{#if loggedIn}}
+
           <li class="nav-item">
             <button class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="profile" data-mdb-ripple="true" data-mdb-ripple-color="light">My Profile</button>
           </li>
@@ -81,6 +84,7 @@
     <script src="/js/logout.js"></script>
     <script src="/js/signup.js"></script>
     <script src="/js/edit-profile.js"></script>
+    <script src="/js/navbar.js"></script>
   </main>
   <footer>
 

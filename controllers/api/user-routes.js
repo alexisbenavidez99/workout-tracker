@@ -112,7 +112,7 @@ router.post('/profile', async (req, res) => {
 });
 
 // update user profile
-router.put('/profile/:username', withAuth, async (req, res) => {
+router.put('/profile/:username', async (req, res) => {
   try {
     const userProfileData = await UserProfile.update(
       {
@@ -126,6 +126,7 @@ router.put('/profile/:username', withAuth, async (req, res) => {
         emergency_contact_number: req.body.emergency_contact_number,
         birthday: req.body.birthday,
         gender: req.body.gender,
+        weight_loss_goal: req.body.weight_goal,
       },
       {
         where: {

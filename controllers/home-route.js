@@ -1,6 +1,5 @@
 const { UserProfile } = require('../models');
-
-
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // GET homepage
@@ -30,7 +29,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 // GET profile
-router.get('/profile/:username', (req, res) => {
+router.get('/profile/:username', withAuth, (req, res) => {
   UserProfile.findOne({
     where: {
       username: req.params.username,
@@ -61,7 +60,6 @@ router.get('/workout-history', (req, res) => {
 
 router.get('/builder', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-
   res.render('builder');
 });
 

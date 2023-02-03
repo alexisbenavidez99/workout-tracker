@@ -47,14 +47,14 @@ const savedButtonHandler = async (event) => {
   const height = document.querySelector('#height').value.trim();
   const emergency_contact_number = document.querySelector('#emergency').value.trim();
   const birthday = document.querySelector('#birthday').value.trim();
-  const weight_goal = document.querySelector('#weight-goal').value.trim();
+
 
 
   // write a post route to udate the users profile
 
   const response = await fetch(`/api/users/profile/${username}`, {
     method: 'PUT',
-    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, weight_goal }),
+    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday}),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {

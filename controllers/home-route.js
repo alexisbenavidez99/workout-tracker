@@ -30,7 +30,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 // GET profile
-router.get('/profile/:username', (req, res) => {
+router.get('/profile/:username',(req, res) => {
   UserProfile.findOne({
     where: {
       username: req.params.username,
@@ -44,7 +44,7 @@ router.get('/profile/:username', (req, res) => {
 
       const userProfile = dbUserProfileData.get({ plain: true });
 
-      res.render('profile', {
+      res.render('profile',{
         userProfile,
         loggedIn: req.session.loggedIn,
       });

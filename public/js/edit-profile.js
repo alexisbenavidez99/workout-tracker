@@ -13,6 +13,7 @@ const myProfileHandler = async (event) => {
   console.log('myProfileHandler');
   document.location.replace(`/profile/${username}`);
 };
+
 if(myProfileButton){
   myProfileButton.addEventListener('click', myProfileHandler);
 }
@@ -47,14 +48,16 @@ const savedButtonHandler = async (event) => {
   const height = document.querySelector('#height').value.trim();
   const emergency_contact_number = document.querySelector('#emergency').value.trim();
   const birthday = document.querySelector('#birthday').value.trim();
-  const weight_goal = document.querySelector('#weight-goal').value.trim();
+  const gender = document.querySelector('#gender').value.trim();
+
+
 
 
   // write a post route to udate the users profile
 
   const response = await fetch(`/api/users/profile/${username}`, {
     method: 'PUT',
-    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, weight_goal }),
+    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, gender}),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {

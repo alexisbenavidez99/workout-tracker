@@ -1,6 +1,5 @@
 const { UserProfile } = require('../models');
-
-
+const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 // GET homepage
@@ -30,7 +29,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 // GET profile
-router.get('/profile/:username', (req, res) => {
+router.get('/profile/:username', withAuth, (req, res) => {
   UserProfile.findOne({
     where: {
       username: req.params.username,
@@ -44,7 +43,7 @@ router.get('/profile/:username', (req, res) => {
 
       const userProfile = dbUserProfileData.get({ plain: true });
 
-      res.render('profile', {
+      res.render('profile',{
         userProfile,
         loggedIn: req.session.loggedIn,
       });
@@ -56,13 +55,18 @@ router.get('/profile/:username', (req, res) => {
 
 router.get('/workout-history', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  res.render('workout-history');
+  res.render('workout-history', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/builder', (req, res) => {
   // If the user is already logged in, redirect the request to another route
 
-  res.render('builder');
+  res.render('builder', {
+    loggedIn: req.session.loggedIn,
+  });
 });
+
 
 module.exports = router;

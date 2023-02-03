@@ -1,21 +1,21 @@
-
 {{#if loggedIn}}
-<button id="edit-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full justfiy-center">Edit Profile</button>
+<button id="edit-profile"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full justfiy-center">Edit
+    Profile</button>
 {{/if}}
 
 
 <div class="container mx-auto my-5 p-5">
     <div class="md:flex no-wrap md:-mx-2 ">
-         <!-- Left Side -->
+        <!-- Left Side -->
         <div class="w-full md:w-3/12 md:mx-2">
             <!-- Profile Card -->
             <div class="bg-white p-3 border-t-4 border-green-400">
                 <div class="image overflow-hidden">
-                    <img class="h-auto w-full mx-auto"
-                        src="{{userProfile.profile_image}}"
-                        alt="">
+                    <img class="h-auto w-full mx-auto" src="{{userProfile.profile_image}}" alt="">
                 </div>
-                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{userProfile.first_name}} {{userProfile.last_name}}</h1>
+                <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{userProfile.first_name}}
+                    {{userProfile.last_name}}</h1>
                 <h3 class="text-gray-600 font-lg text-semibold leading-6">{{userProfile.nickname}}</h3>
                 <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">{{userProfile.bio}}</p>
                 <ul
@@ -25,9 +25,9 @@
                         <span class="ml-auto">
                             {{#if loggedIn}}
                             <span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
-                            {{else}}
-                            <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">Inactive</span></span>
-                            {{/if}}
+                        {{else}}
+                        <span class="bg-red-500 py-1 px-2 rounded text-white text-sm">Inactive</span></span>
+                        {{/if}}
                     </li>
                     <li class="flex items-center py-3">
                         <span>Member since</span>
@@ -41,8 +41,8 @@
             <div class="bg-white p-3 hover:shadow">
                 <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                     <span class="text-green-500">
-                        <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
@@ -52,14 +52,12 @@
                 <div class="grid grid-cols-3">
                     <div class="text-center my-2">
                         <img class="h-16 w-16 rounded-full mx-auto"
-                            src="https://avatars.githubusercontent.com/u/113260005?v=4"
-                            alt="">
+                            src="https://avatars.githubusercontent.com/u/113260005?v=4" alt="">
                         <a href="#" class="text-main-color">Alexis</a>
                     </div>
                     <div class="text-center my-2">
                         <img class="h-16 w-16 rounded-full mx-auto"
-                            src="https://avatars.githubusercontent.com/u/114119193?v=4"
-                            alt="">
+                            src="https://avatars.githubusercontent.com/u/114119193?v=4" alt="">
                         <a href="#" class="text-main-color">Nathaniel</a>
                     </div>
                     <div class="text-center my-2">
@@ -70,8 +68,7 @@
                     </div>
                     <div class="text-center my-2">
                         <img class="h-16 w-16 rounded-full mx-auto"
-                            src="https://avatars.githubusercontent.com/u/107882457?v=4"
-                            alt="">
+                            src="https://avatars.githubusercontent.com/u/107882457?v=4" alt="">
                         <a href="#" class="text-main-color">Ali</a>
                     </div>
                 </div>
@@ -148,80 +145,109 @@
                             </span>
                             <span class="tracking-wide">Workout History</span>
                         </div>
-                        
+
                         <ul class="list-inside space-y-2">
                             {{#each workouts as |workout|}}
                             <li>
-                                <div class="text-teal-600"> {{name}}</div>
-                                <div class="text-teal-600"> {{type_exercise}}</div>
-                                <div class="text-gray-500 text-xs">{{date}}</div>
+                                <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
+                                    <div
+                                        class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4">
+                                        <div class="mb-8">
+                                            <div class="text-gray-900 font-bold text-xl mb-2">{{name}}</div>
+                                            <p class="text-gray-700 text-base">{{type_exercise}}</p>
+                                            <p class="text-gray-700 text-base">Date: {{date}}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             {{/each}}
                         </ul>
-                        
+
                     </div>
-                <!-- End of Workout History -->
-            <!-- End of profile tab -->
+                    <!-- End of Workout History -->
+                    <!-- End of profile tab -->
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
 
 
-<div class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden" id="myModal">
-  <div class="modal-content bg-white rounded-lg p-10 max-w-sm w-full md:w-1/2">
-    <div class="modal-header text-lg font-medium w-full">
-      <span class="close cursor-pointer text-2xl float-right">&times;</span>
-      <h2 class="text-3xl">Edit Profile</h2>
-    </div>
-    <div class="modal-body">
-      <form class="w-full max-w-lg">
-        <div class="form-group mb-5">
-          <label for="imageUrl" class="block text-gray-700 font-medium mb-2">Profile Image URL</label>
-          <input type="text" value="{{userProfile.profile_image}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="imageUrl">
+        <div class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden" id="myModal">
+            <div class="modal-content bg-white rounded-lg p-10 max-w-sm w-full md:w-1/2">
+                <div class="modal-header text-lg font-medium w-full">
+                    <span class="close cursor-pointer text-2xl float-right">&times;</span>
+                    <h2 class="text-3xl">Edit Profile</h2>
+                </div>
+                <div class="modal-body">
+                    <form class="w-full max-w-lg">
+                        <div class="form-group mb-5">
+                            <label for="imageUrl" class="block text-gray-700 font-medium mb-2">Profile Image URL</label>
+                            <input type="text" value="{{userProfile.profile_image}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="imageUrl">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
+                            <input type="text" value="{{userProfile.first_name}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="firstName">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
+                            <input type="text" value="{{userProfile.last_name}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="lastName">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="nickname" class="block text-gray-700 font-medium mb-2">Nickname</label>
+                            <input type="text" value="{{userProfile.nickname}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="nickname">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="bio" class="block text-gray-700 font-medium mb-2">Bio</label>
+                            <textarea class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="bio" placeholder="{{userProfile.bio}}" rows="3"></textarea>
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="weight" class="block text-gray-700 font-medium mb-2">Weight</label>
+                            <input type="number" value="{{userProfile.curent_weight}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="weight">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="height" class="block text-gray-700 font-medium mb-2">Height</label>
+                            <input type="text" value="{{userProfile.height}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="height">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="emergencyContact" class="block text-gray-700 font-medium mb-2">Phone
+                                Number</label>
+                            <input type="text" value="{{userProfile.emergency_contact_number}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="emergency">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="birthday" class="block text-gray-700 font-medium mb-2">Birthday</label>
+                            <input type="text" value="{{userProfile.birthday}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="birthday">
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="Gender" class="block text-gray-700 font-medium mb-2">Gender</label>
+                            <input type="text" value="{{userProfile.gender}}"
+                                class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
+                                id="gender">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="save-profile"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                    <button id="close-button"
+                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="form-group mb-5">
-          <label for="firstName" class="block text-gray-700 font-medium mb-2">First Name</label>
-          <input type="text" value="{{userProfile.first_name}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="firstName">
-        </div>
-        <div class="form-group mb-5">
-          <label for="lastName" class="block text-gray-700 font-medium mb-2">Last Name</label>
-          <input type="text" value="{{userProfile.last_name}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="lastName">
-        </div>
-        <div class="form-group mb-5">
-          <label for="nickname" class="block text-gray-700 font-medium mb-2">Nickname</label>
-          <input type="text" value="{{userProfile.nickname}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="nickname">
-        </div>
-        <div class="form-group mb-5">
-          <label for="bio" class="block text-gray-700 font-medium mb-2">Bio</label>
-          <textarea  class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="bio" placeholder="{{userProfile.bio}}" rows="3"></textarea>
-        </div>
-        <div class="form-group mb-5">
-          <label for="weight" class="block text-gray-700 font-medium mb-2">Weight</label>
-          <input type="number" value="{{userProfile.curent_weight}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="weight">
-        </div>
-        <div class="form-group mb-5">
-          <label for="height" class="block text-gray-700 font-medium mb-2">Height</label>
-          <input type="text" value="{{userProfile.height}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="height">
-        </div>
-        <div class="form-group mb-5">
-          <label for="emergencyContact" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-          <input type="text" value="{{userProfile.emergency_contact_number}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="emergency">
-        </div>
-        <div class="form-group mb-5">
-          <label for="birthday" class="block text-gray-700 font-medium mb-2">Birthday</label>
-          <input type="text" value="{{userProfile.birthday}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="birthday">
-        </div>
-        <div class="form-group mb-5">
-          <label for="Gender" class="block text-gray-700 font-medium mb-2">Gender</label>
-          <input type="text" value="{{userProfile.gender}}" class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="gender">
-        </div>
-        </form>
-        </div>
-        <div class="modal-footer">
-          <button id="save-profile" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
-          <button id="close-button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Close</button>
-        </div>
-    </div>
-</div>
-

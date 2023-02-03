@@ -7,7 +7,7 @@ const logout = async (req, res) => {
   });
   if (response.ok) {
     alert('You are now logged out!');
-    document.location.replace('/');
+    document.location.reload();
   } else {
 
     alert('Failed to logout...You are not logged in.');

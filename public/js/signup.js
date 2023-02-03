@@ -32,6 +32,7 @@ const signupHandler = async (event) => {
   const emergency_contact_number = 'Whats a phone number?';
   const birthday = 'July 31, 1980';
   const join_date= new Date().toLocaleDateString();
+
   // go ahead and create an default profile for the user
 
   const response = await fetch('/api/users/profile', {
@@ -40,9 +41,10 @@ const signupHandler = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
+    sessionStorage.setItem('username', username);
     document.location.replace(`/profile/${username}`);
   } else {
-    alert('Failed to update profile.');
+    return;
   }
 
 };

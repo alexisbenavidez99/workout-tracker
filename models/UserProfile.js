@@ -63,7 +63,7 @@ UserProfile.init(
       allowNull: true,
     },
     join_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     gender: {

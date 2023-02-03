@@ -28,7 +28,6 @@ router.get('/signup', (req, res) => {
   }
   res.render('signup');
 });
-// GET profile
 router.get('/profile/:username', withAuth, (req, res) => {
   UserProfile.findOne({
     where: {
@@ -43,10 +42,22 @@ router.get('/profile/:username', withAuth, (req, res) => {
 
       const userProfile = dbUserProfileData.get({ plain: true });
 
-      res.render('profile',{
-        userProfile,
-        loggedIn: req.session.loggedIn,
-      });
+      Workout.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+      })
+        .then(dbWorkoutData => {
+          const workouts = dbWorkoutData.map(workout => workout.get({ plain: true }));
+          res.render('profile',{
+            userProfile,
+            workouts,
+            loggedIn: req.session.loggedIn,
+          });
+        })
+        .catch(err => {
+          res.status(500).json(err);
+        });
     })
     .catch(err => {
       res.status(500).json(err);

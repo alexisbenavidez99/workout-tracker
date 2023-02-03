@@ -148,24 +148,17 @@
                             </span>
                             <span class="tracking-wide">Workout History</span>
                         </div>
+                        
                         <ul class="list-inside space-y-2">
+                            {{#each workouts as |workout|}}
                             <li>
-                                <div class="text-teal-600"> Back and Biceps</div>
-                                <div class="text-gray-500 text-xs">January 1, 2023</div>
+                                <div class="text-teal-600"> {{name}}</div>
+                                <div class="text-teal-600"> {{type_exercise}}</div>
+                                <div class="text-gray-500 text-xs">{{date}}</div>
                             </li>
-                            <li>
-                                <div class="text-teal-600">Chest and Triceps</div>
-                                <div class="text-gray-500 text-xs">January 3, 2023</div>
-                            </li>
-                            <li>
-                                <div class="text-teal-600">Leg Day</div>
-                                <div class="text-gray-500 text-xs">January 5, 2023</div>
-                            </li>
-                            <li>
-                                <div class="text-teal-600">Core Day</div>
-                                <div class="text-gray-500 text-xs">January 7,2023</div>
-                            </li>
+                            {{/each}}
                         </ul>
+                        
                     </div>
                 <!-- End of Workout History -->
             <!-- End of profile tab -->

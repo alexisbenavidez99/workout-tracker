@@ -69,6 +69,7 @@ if (saveWorkout) {
         <p class="text-gray-700 text-base">${exercise}</p>
         <p class="text-gray-700 text-base">Workout Date: ${workoutDate}</p>
         
+        
       </div>
     </div>
   </div>

@@ -47,7 +47,7 @@ UserProfile.init(
       allowNull: true,
     },
     height: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING ,
       allowNull: true,
     },
     curent_weight: {

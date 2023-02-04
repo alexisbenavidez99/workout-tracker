@@ -79,7 +79,7 @@ router.post('/login', async (req, res) => {
 
 //  logout
 
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -196,7 +196,10 @@ router.put('/reset-password/:token', (req, res) => {
       // Update the user's password in the database
       return user
         .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
-        .then(() => res.status(200).json({ message: 'Password updated successfully.' }))
+        .then(() => {
+          res.status(200).json({ message: 'Password updated successfully.' });
+          res.render('login');
+        })
         .catch((err) => res.status(500).json(err));
     })
     .catch((err) => res.status(500).json(err));

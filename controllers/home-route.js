@@ -96,5 +96,18 @@ router.get('/builder', (req, res) => {
   });
 });
 
+// forgot password route
+router.get('/forgot-password', (req, res) => {
+  res.render('forgot-password');
+});
+
+// reset password route
+router.get('/reset-password/:token', (req, res) => {
+  res.render('reset-password', {
+    token: req.params.token,
+  });
+});
+
+
 
 module.exports = router;

@@ -2,7 +2,7 @@ const createProfileButton = document.querySelector('#create-profile');
 
 const signupHandler = async (event) => {
   event.preventDefault();
-  console.log('signupHandler');
+
   const username = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -12,12 +12,13 @@ const signupHandler = async (event) => {
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
+    // const data = await response.json();
     if (response.ok) {
       alert('You are now signed up! Logging you in...');
-      document.location.replace('/login');
+      document.location.replace(`/profile/${username}`);
     } else {
       // alert response;
-      alert('Email or Username already exists. Please try again.');
+      alert(data.message || 'Something went wrong. Please try again.');
     }
   }
 
@@ -44,6 +45,7 @@ const signupHandler = async (event) => {
     sessionStorage.setItem('username', username);
     document.location.replace(`/profile/${username}`);
   } else {
+    alert('Failed to create profile.');
     return;
   }
 

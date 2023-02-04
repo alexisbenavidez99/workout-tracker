@@ -13,13 +13,11 @@ const logout = async (req, res) => {
     alert('Failed to logout...You are not logged in.');
   }
 
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+
+  req.session.destroy(() => {
+    res.status(204).end();
+
+  });
 };
 //  add event listener to the logout button
 if (logoutEl) {

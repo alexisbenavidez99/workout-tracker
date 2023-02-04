@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { User, UserProfile } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sendPasswordResetEmail = require('../../utils/email');
+const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+const { Op } = require('sequelize');
+
 
 //  create a new user
 router.post('/', async (req, res) => {
@@ -140,6 +145,62 @@ router.put('/profile/:username', withAuth, async (req, res) => {
   }
 });
 
+// POST route for forgot password
+router.post('/forgot-password', (req, res) => {
+  const email = req.body.email;
+
+
+  // Check if the email address exists in the database
+  User.findOne({ where: { email }})
+    .then(user => {
+      if (!user) {
+        // Return an error if the email address doesn't exist
+        res.status(400).json({ message: 'No user found with this email address' });
+        return;
+      }
+
+      // Generate a password reset token
+      const token = crypto.randomBytes(16).toString('hex');
+
+      // Save the password reset token in the database
+      user.update({ passwordResetToken: token, passwordResetExpires: Date.now() + 3600000 });
+
+      // Send a password reset email to the user
+      sendPasswordResetEmail(email, token);
+
+      res.status(200).json({ message: 'Password reset email sent' });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// POST route for new password
+router.put('/reset-password/:token', (req, res) => {
+  User.findOne({
+    where: {
+      passwordResetToken: req.params.token,
+      passwordResetExpires: { [Op.gt]: Date.now() },
+    },
+  })
+    .then((user) => {
+      if (!user) {
+        return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
+      }
+
+      // Hash the new password
+      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+      const password = req.body.password;
+      console.log('password', password);
+      // Update the user's password in the database
+      return user
+        .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
+        .then(() => res.status(200).json({ message: 'Password updated successfully.' }))
+        .catch((err) => res.status(500).json(err));
+    })
+    .catch((err) => res.status(500).json(err));
+});
 
 
 module.exports = router;

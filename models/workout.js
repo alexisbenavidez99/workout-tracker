@@ -19,6 +19,10 @@ Workout.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    muscle_group: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     date: {
       type: DataTypes.STRING,
       allowNull: false
@@ -32,6 +36,10 @@ Workout.init(
       allowNull: true
     },
     weight: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    rating: {
       type: DataTypes.INTEGER,
       allowNull: true
     },

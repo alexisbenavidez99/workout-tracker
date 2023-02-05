@@ -133,7 +133,7 @@
             <div class="my-4"></div>
             <!-- Workout History -->
             <div class="bg-white p-3 shadow-sm rounded-sm">
-                <div class="grid grid-cols-2">
+                <div class="grid">
                     <div>
                         <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                             <span clas="text-green-500">
@@ -146,23 +146,29 @@
                             <span class="tracking-wide">Workout History</span>
                         </div>
 
-                        <ul class="list-inside space-y-2">
-                            {{#each workouts as |workout|}}
-                            <li>
-                                <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
-                                    <div
-                                        class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4">
-                                        <div class="mb-8">
-                                            <div class="text-gray-900 font-bold text-xl mb-2">{{name}}</div>
-                                            <p class="text-gray-700 text-base">{{type_exercise}}</p>
-                                            <p class="text-gray-700 text-base">Date: {{date}}</p>
 
-                                        </div>
+                        <div id="addWorkout" class="flex flex-wrap">
+                            {{#each workouts as |workout|}}
+                            <div class="history-card w-1/2">
+                                <div
+                                    class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-xl mb-2">{{name}}</div>
+                                        <p class="text-gray-700 text-base">Exercise type: {{type_exercise}} </p>
+                                        <p class="text-gray-700 text-base">Muscle group: {{muscle_group}}</p>
+                                        <p class="text-gray-700 text-base">{{sets}} x {{reps}}</p>
+                                        <p class="text-gray-700 text-base">Rating: {{rating}}</p>
+                                        <p class="text-gray-700 text-base">Date: {{date}}</p>
+                                        <p id="id" class="text-gray-700 text-base hidden">{{id}}</p>
+                                        <button id="delete-icon" class="bg-red-500 text-white p-2 rounded float-right">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
-                            </li>
+                            </div>
                             {{/each}}
-                        </ul>
+                        </div>
+
 
                     </div>
                     <!-- End of Workout History -->
@@ -208,7 +214,7 @@
                         <div class="form-group mb-5">
                             <label for="bio" class="block text-gray-700 font-medium mb-2">Bio</label>
                             <textarea class="form-control bg-gray-200 border border-gray-400 rounded-lg p-3 w-full"
-                                id="bio" placeholder="{{userProfile.bio}}" rows="3"></textarea>
+                                id="bio" rows="3">{{userProfile.bio}}</textarea>
                         </div>
                         <div class="form-group mb-5">
                             <label for="weight" class="block text-gray-700 font-medium mb-2">Weight</label>

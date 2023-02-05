@@ -2,7 +2,7 @@
 const search = document.getElementById('search');
 const workoutCard = document.getElementById('explain');
 
-search.addEventListener('click', () => {
+search?.addEventListener('click', () => {
   let radioValue = document.querySelector('input[name="exercise_type"]:checked').value;
   $.getJSON({
     url: 'https://api.api-ninjas.com/v1/exercises?' + radioValue,

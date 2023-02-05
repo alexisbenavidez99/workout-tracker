@@ -2,7 +2,6 @@ const createProfileButton = document.querySelector('#create-profile');
 
 const signupHandler = async (event) => {
   event.preventDefault();
-
   const username = document.querySelector('#name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -12,14 +11,13 @@ const signupHandler = async (event) => {
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    // const data = await response.json();
-    if (response.ok) {
-      alert('You are now signed up! Logging you in...');
-      document.location.replace(`/profile/${username}`);
+    if (!response.ok) {
+      throw new Error(`${response.status} ${response.statusText}`);
     } else {
-      // alert response;
-      alert(data.message || 'Something went wrong. Please try again.');
+      alert('You are now signed up! Logging you in...');
+      document.location.replace('/profile/${username}');
     }
+    // const data = await response.json();
   }
 
   const profile_image = 'https://www.looper.com/img/gallery/harry-potter-is-getting-something-huge-in-2022/intro-1625353292.jpg';
@@ -51,10 +49,6 @@ const signupHandler = async (event) => {
 
 };
 
-
-
-
-
-if(createProfileButton){
+if(createProfileButton !== null){
   createProfileButton.addEventListener('click', signupHandler);
 }

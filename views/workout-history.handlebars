@@ -1,45 +1,120 @@
+{{!-- Button Add Workout --}}
 <button id="workoutHistoryModalButton"
-  class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-5 rounded-lg shadow-lg focus:outline-none focus:shadow-outline">
-  Add Completed Workout
-</button>
-<div class="fixed top-0 left-0 w-full h-full overflow-auto bg-gray-900 bg-opacity-75 hidden" id="workout-history-modal">
-  <div class="modal-dialog modal-dialog-centered w-11/12 max-w-lg mx-auto rounded-lg bg-white p-8">
-    <div class="mb-5">
-      <label for="workoutName" class="block text-gray-700 font-medium mb-2">Workout Name</label>
-      <input type="text" class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutName">
-    </div>
-    <div class="mb-5">
-      <label for="exercise" class="block text-gray-700 font-medium mb-2">Exercises ex"spider crawl 4 x 12"</label>
-      <textarea class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="exercise" rows="3"></textarea>
-    </div>
-    <div class="mb-5">
-      <label for="workoutDate" class="block text-gray-700 font-medium mb-2">Workout Date</label>
-      <input type="date" class="bg-gray-200 border border-gray-400 rounded-lg p-3 w-full" id="workoutDate">
-    </div>
-    <div class="mb-5">
-      <button id="save-workout"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Save</button>
-      <button id="close-workout"
-        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Close</button>
-    </div>
-  </div>
-</div>
-<div id="addWorkout">
+  class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-5 rounded-lg shadow-lg focus:outline-none focus:shadow-outline">Add
+  Completed Workout</button>
+{{!-- view for workout cards --}}
+<div id="addWorkout" class="flex flex-wrap">
   {{#each workouts as |workout|}}
-  <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
+  <div class="history-card max-w-sm w-full lg:max-w-full lg:w-1/3 md:w-1/2 sm:w-full">
     <div
-      class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4 ">
-      <div class="mb-8">
+      class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl">
+      <div class="">
         <div class="text-gray-900 font-bold text-xl mb-2">{{name}}</div>
-        <p class="text-gray-700 text-base">{{type_exercise}}</p>
+        <p class="text-gray-700 text-base">Exercise type: {{type_exercise}} </p>
+        <p class="text-gray-700 text-base">Muscle group: {{muscle_group}}</p>
+        <p class="text-gray-700 text-base">{{sets}} x {{reps}}</p>
+        <p class="text-gray-700 text-base">Rating: {{rating}}</p>
         <p class="text-gray-700 text-base">Date: {{date}}</p>
-        <button class="bg-red-500 text-white p-2 rounded">
+        <p id="id" class="text-gray-700 text-base hidden">{{id}}</p>
+        <button id="delete-icon" class="bg-red-500 text-white p-2 rounded float-right">
           <i class="fas fa-trash"></i>
         </button>
-
-
       </div>
     </div>
   </div>
   {{/each}}
+</div>
+
+{{!-- Workout Modal --}}
+<div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
+  <div id="workout-history-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black opacity-75 z-50">
+    <div class="w-1/2 mx-auto mt-10 bg-white rounded-xl shadow-lg dark:bg-gray-800 dark:border-gray-700 border-2 border-indigo-300">
+      <div class="p-4 sm:p-7">
+        <div class="text-center">
+          <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Add Completed Workout</h1>
+        </div>
+        <!-- ... rest of the form goes here ... -->
+        <div class="grid gap-y-4">
+          <div>
+            <label for="workoutName" class="block text-sm font-bold ml-1 mb-2 dark:text-white">Workout Name:</label>
+            <div class="relative">
+              <input type="text" id="workoutName" name="workoutName"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+            </div>
+            <label for="exerciseType" class="block text-sm font-bold ml-1 mb-2 dark:text-white">Choose your exercise
+              type:</label>
+            <div class="relative">
+              <select id="exerciseType" name="exerciseType"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+                <option value="Cardio">Cardio</option>
+                <option value="Olympic Lifts">Olympic Lifts</option>
+                <option value="Plyometrics">Plyometrics</option>
+                <option value="Powerlifting">Powerlifting</option>
+                <option value="Strength">Strength</option>
+                <option value="Stretching">Stretching</option>
+                <option value="Strongman">Strongman</option>
+              </select>
+            </div>
+            <label for="muscleGroup" class="block text-sm font-bold ml-1 mb-2 dark:text-white">What was the muscle
+              group:</label>
+            <div class="relative">
+              <select id="muscleGroup" name="muscleGroup"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+                <option value="Abdominals">Abdominals</option>
+                <option value="Abductors">Abductors</option>
+                <option value="Adductors">Adductors</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Calves">Calves</option>
+                <option value="Chest">Chest</option>
+                <option value="Forearms">Forearms</option>
+                <option value="Glutes">Glutes</option>
+                <option value="Hamstrings">Hamstrings</option>
+                <option value="Lats">Lats</option>
+                <option value="Lower Back">Lower Back</option>
+                <option value="Middle Back">Middle Back</option>
+                <option value="Neck">Neck</option>
+                <option value="Quadriceps">Quadriceps</option>
+                <option value="Traps">Traps</option>
+                <option value="Triceps">Triceps</option>
+              </select>
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-bold ml-1 mb-2 dark:text-white" for="sets">
+                How many sets:
+              </label>
+              <input type="number" id="sets"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-bold ml-1 mb-2 dark:text-white" for="reps">
+                How many reps:
+              </label>
+              <input type="number" id="reps"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-bold ml-1 mb-2 dark:text-white" for="rating">
+                How would you rate your workout on a 1 out of 10:
+              </label>
+
+              <input type="number" id="rating"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm"
+                min="1" max="10">
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-bold ml-1 mb-2 dark:text-white" for="date">
+                What date:
+              </label>
+              <input type="date" id="date"
+                class="py-3 px-4 block w-full border-2 border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 shadow-sm">
+            </div>
+            <div class="text-right">
+              <button id="save-workout" type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                Save Workout
+              </button>
+            </div>
+
+      </div>
+    </div>
+  </div>
 </div>

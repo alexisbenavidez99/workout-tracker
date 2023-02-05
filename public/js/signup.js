@@ -85,6 +85,12 @@ const signupHandler = async (event) => {
 if (createProfileButton !== null) {
   createProfileButton.addEventListener('click', signupHandler);
 }
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    signupHandler(event);
+  }
+});
+
 
 
 

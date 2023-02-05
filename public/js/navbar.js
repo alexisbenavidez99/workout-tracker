@@ -17,7 +17,7 @@ btn.addEventListener('click', () => {
 });
 
 const workoutHistoryModalButton = document.querySelector('#workoutHistoryModalButton');
-if(workoutHistoryModalButton){
+if (workoutHistoryModalButton) {
   workoutHistoryModalButton.addEventListener('click', () => {
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
   });
@@ -25,35 +25,40 @@ if(workoutHistoryModalButton){
 
 
 // Hide the modal
-if(closeWorkoutHistoryModal){
-  closeWorkoutHistoryModal.addEventListener('click', function() {
+if (closeWorkoutHistoryModal) {
+  closeWorkoutHistoryModal.addEventListener('click', function () {
     console.log('check');
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
   });
 }
 
 // Hide the modal when clicking outside of it
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
   if (event.target === document.getElementById('workout-history-modal')) {
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
   }
 });
 if (saveWorkout) {
-  saveWorkout.addEventListener('click', async function() {
+  saveWorkout.addEventListener('click', async function () {
+    console.log('save workout');
+    const exerciseType = document.querySelector('#exerciseType').value;
+    const muscleGroup = document.querySelector('#muscleGroup').value;
+    const sets = document.querySelector('#sets').value;
+    const reps = document.querySelector('#reps').value;
+    const rating = document.querySelector('#rating').value;
+    const date = document.querySelector('#date').value;
+    const workoutName = document.querySelector('#workoutName').value;
 
-
-    const workoutName = document.getElementById('workoutName').value;
-    const exercise = document.getElementById('exercise').value;
-    const workoutDate = document.getElementById('workoutDate').value;
 
     //   creat a post route for a workout model
     const response = await fetch('/api/workouts', {
       method: 'POST',
-      body: JSON.stringify({ workoutName, exercise, workoutDate}),
+      body: JSON.stringify({ exerciseType, muscleGroup, sets, reps, rating, date, workoutName}),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
+      document.location.reload();
       console.log('saved workout');
     } else {
       alert('Failed to save workout');
@@ -61,26 +66,10 @@ if (saveWorkout) {
 
 
 
-    var workoutHistoryCard = `
-  <div class="history-card max-w-sm w-full lg:max-w-full lg:flex">
-    <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal m-8 shadow-2xl w-1/4">
-      <div class="mb-8">
-        <div class="text-gray-900 font-bold text-xl mb-2">${workoutName}</div>
-        <p class="text-gray-700 text-base">${exercise}</p>
-        <p class="text-gray-700 text-base">Workout Date: ${workoutDate}</p>
-        <button class="bg-red-500 text-white p-2 rounded">
-            <i class="fas fa-trash"></i>
-        </button>
-        
-        
-      </div>
-    </div>
-  </div>
-`;
+
 
 
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
-    document.getElementById('addWorkout').insertAdjacentHTML('beforeend', workoutHistoryCard);
   });
 }
 

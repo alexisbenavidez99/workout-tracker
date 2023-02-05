@@ -26,3 +26,9 @@ const loginFormHandler = async (event) => {
 if (loginButton) {
   loginButton.addEventListener('click', loginFormHandler);
 }
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    loginFormHandler(event);
+  }
+});

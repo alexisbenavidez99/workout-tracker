@@ -27,6 +27,7 @@
   <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
     <div class="px-6 w-full flex flex-wrap items-center justify-between">
       <div class="flex items-center">
+      {{#if loggedIn}}
         <button
           class="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2"
           type="button"
@@ -56,10 +57,8 @@
 
     </nav>
     <!-- Navbar -->
-
       <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
 
-        {{#if loggedIn}}
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row sm:hidden " id="navbar-ul">
           
           <li class="nav-item">
@@ -75,9 +74,9 @@
             <a class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out" id="signout" href="/" data-mdb-ripple="true" data-mdb-ripple-color="light">Sign Out</a>
           </li>
         </ul>
-        {{/if}}
       </div>
     </div>
+  {{/if}}
   </nav>
   <!-- Navbar -->
   </header>

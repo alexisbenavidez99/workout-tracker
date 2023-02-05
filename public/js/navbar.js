@@ -50,7 +50,7 @@ if (saveWorkout) {
     const workoutName = document.querySelector('#workoutName').value;
 
 
-    //   creat a post route for a workout model
+    // create a post route for a workout model
     const response = await fetch('/api/workouts', {
       method: 'POST',
       body: JSON.stringify({ exerciseType, muscleGroup, sets, reps, rating, date, workoutName }),
@@ -63,11 +63,6 @@ if (saveWorkout) {
     } else {
       showErrorModal('Failed to save workout');
     }
-
-
-
-
-
 
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
   });

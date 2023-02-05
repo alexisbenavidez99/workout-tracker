@@ -15,10 +15,10 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       sessionStorage.setItem('username', username);
-      alert ('You are now logged in!');
+      showErrorModal('You are now logged in!');
       document.location.replace(`/profile/${username}`);
     } else {
-      alert('Failed to log in');
+      showErrorModal('Failed to log in.');
     }
   }
 };

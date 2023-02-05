@@ -6,11 +6,11 @@ const logout = async (req, res) => {
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
-    alert('You are now logged out!');
+    showErrorModal('You are now logged out.');
     res.redirect('/');
   } else {
 
-    alert('Failed to logout...You are not logged in.');
+    showErrorModal('Failed to log out, you are not logged in.');
   }
 
 

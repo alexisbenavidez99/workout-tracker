@@ -81,3 +81,48 @@ if (saveWorkout) {
   });
 }
 
+
+// i got bored so i made this
+// var timer = setTimeout(function () {
+// var dumbbell = document.createElement('div');
+// dumbbell.innerHTML = 'Are you still there?';
+// dumbbell.style.position = 'absolute';
+// dumbbell.style.left = '0px';
+// dumbbell.style.top = '0px';
+// document.body.appendChild(dumbbell);
+// var x = 0;
+// var y = 0;
+// var direction = 1;
+// var timer = setInterval(function () {
+//   x += direction;
+//   dumbbell.style.left = x + 'px';
+//   if (x > window.innerWidth - 100) {
+//     direction = -1;
+//   } else if (x < 0) {
+//     direction = 1;
+//   }
+// }, 10);
+// document.body.onmousemove = function () {
+//   clearInterval(timer);
+//   document.body.removeChild(dumbbell);
+// };
+
+// /* make the text large */
+// dumbbell.style.fontSize = '100px';
+
+// /* bounce it diagonal */
+// var x = 0;
+// var y = 0;
+// var direction = 1;
+// var timer = setInterval(function () {
+//   x += direction;
+//   y += direction;
+//   dumbbell.style.left = x + 'px';
+//   dumbbell.style.top = y + 'px';
+//   if (x > window.innerWidth - 100) {
+//     direction = -1;
+//   } else if (x < 0) {
+//     direction = 1;
+//   }
+// }, 10);
+// }, 10000);

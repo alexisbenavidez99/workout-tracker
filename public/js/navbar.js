@@ -7,11 +7,9 @@ const saveWorkout = document.getElementById('save-workout');
 btn.addEventListener('click', () => {
   const classNamesArray = Array.from(ul.classList);
 
-  if (classNamesArray.includes('hidden')) {
-    ul.classList.remove('hidden');
+  if (classNamesArray.includes('sm:hidden')) {
     ul.classList.remove('sm:hidden');
   } else {
-    ul.classList.add('hidden');
     ul.classList.add('sm:hidden');
   }
 });

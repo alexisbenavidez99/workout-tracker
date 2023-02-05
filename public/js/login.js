@@ -18,7 +18,8 @@ const loginFormHandler = async (event) => {
       alert ('You are now logged in!');
       document.location.replace(`/profile/${username}`);
     } else {
-      alert('Failed to log in');
+      const data = await response.json();
+      alert(data.message);
     }
   }
 };

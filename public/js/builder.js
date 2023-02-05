@@ -5,7 +5,7 @@ const searchButton = document.getElementById('search2')
 
 searchButton.addEventListener('click', () => {
   console.log('click')
-  var searchTerm = $("#searchBar").val();
+  var searchTerm = searchBar.val();
   var url = "https://api.api-ninjas.com/v1/exercises?name=" + searchTerm;
   $.getJSON({
     url: url,

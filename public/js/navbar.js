@@ -9,8 +9,10 @@ btn.addEventListener('click', () => {
 
   if (classNamesArray.includes('sm:hidden')) {
     ul.classList.remove('sm:hidden');
+    ul.style.display = 'block';
   } else {
     ul.classList.add('sm:hidden');
+    ul.style.display = 'none';
   }
 });
 
@@ -66,6 +68,9 @@ if (saveWorkout) {
         <div class="text-gray-900 font-bold text-xl mb-2">${workoutName}</div>
         <p class="text-gray-700 text-base">${exercise}</p>
         <p class="text-gray-700 text-base">Workout Date: ${workoutDate}</p>
+        <button class="bg-red-500 text-white p-2 rounded">
+            <i class="fas fa-trash"></i>
+        </button>
         
         
       </div>

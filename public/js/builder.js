@@ -1,7 +1,7 @@
 const search = document.getElementById('search')
 const workoutCard = document.getElementById('explain')
-const searchBar = document.getElementById('searchBar')
 const searchButton = document.getElementById('search2')
+const searchBar = $('#searchBar')
 
 searchButton.addEventListener('click', () => {
   console.log('click')

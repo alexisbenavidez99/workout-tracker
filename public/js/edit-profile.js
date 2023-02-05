@@ -20,7 +20,8 @@ if(myProfileButton){
 
 const editProfile = async (event) => {
   event.preventDefault();
-  document.querySelector('#myModal').classList.toggle('hidden');
+  console.log('editProfile');
+  document.querySelector('#myModal').style.display = 'block';
 };
 
 if (editProfieButton) {
@@ -31,7 +32,7 @@ const closeModals = async (event) => {
   event.preventDefault();
   console.log('close');
   if(modal){
-    modal.classList.toggle('hidden');
+    modal.style.display = 'none';
   }
 };
 
@@ -66,6 +67,8 @@ const savedButtonHandler = async (event) => {
     alert('Failed to update profile.');
   }
 };
+
+
 
 if (closeButton) {
   closeButton.addEventListener('click', closeModals);

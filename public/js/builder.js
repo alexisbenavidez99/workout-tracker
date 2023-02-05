@@ -1,9 +1,9 @@
 const search = document.getElementById('search')
 const workoutCard = document.getElementById('explain')
 const searchBar = document.getElementById('searchBar')
-const searchButton = $(search2)
+const searchButton = document.getElementById('search2')
 
-searchButton.click(function () {
+searchButton.addEventListener('click', () => {
   console.log('click')
   var searchTerm = $("#searchBar").val();
   var url = "https://api.api-ninjas.com/v1/exercises?name=" + searchTerm;

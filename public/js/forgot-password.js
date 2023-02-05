@@ -2,7 +2,7 @@
 
 const form1 = document.querySelector('form');
 if (form1) {
-  form1.addEventListener('submit', function(event) {
+  form1.addEventListener('submit', function (event) {
     event.preventDefault();
 
     // Get the email value from the input
@@ -27,10 +27,10 @@ if (form1) {
       .then(response => {
         if (response.ok) {
           // Show a success message
-          alert('Password reset email sent');
+          showErrorModal('Password reset email sent. Please check your email.');
         } else {
           // Show an error message
-          alert('Failed to send password reset email');
+          showErrorModal('Failed to send password reset email.');
         }
       });
   });
@@ -44,7 +44,7 @@ if (form1) {
 
 const form = document.querySelector('form');
 
-if(form){
+if (form) {
   form.addEventListener('submit', async (event) => {
     const passwordInput = document.querySelector('#password').value.trim();
     const confirmPasswordInput = document.querySelector('#confirmPassword').value.trim();
@@ -57,8 +57,8 @@ if(form){
     const confirmPassword = confirmPasswordInput;
 
     if (password !== confirmPassword) {
-    // Show an error message
-      alert('Passwords do not match');
+      // Show an error message
+      showErrorModal('Passwords do not match.');
       return;
     }
 
@@ -79,7 +79,7 @@ if(form){
       }
 
       // Show a success message
-      alert('Password reset successfully');
+      showErrorModal('Password reset successful. Logging you in...');
       document.location.replace('/login');
     } catch (error) {
       console.error(error);

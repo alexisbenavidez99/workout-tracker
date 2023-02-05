@@ -53,7 +53,7 @@ if (saveWorkout) {
     //   creat a post route for a workout model
     const response = await fetch('/api/workouts', {
       method: 'POST',
-      body: JSON.stringify({ exerciseType, muscleGroup, sets, reps, rating, date, workoutName}),
+      body: JSON.stringify({ exerciseType, muscleGroup, sets, reps, rating, date, workoutName }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -61,7 +61,7 @@ if (saveWorkout) {
       document.location.reload();
       console.log('saved workout');
     } else {
-      alert('Failed to save workout');
+      showErrorModal('Failed to save workout');
     }
 
 
@@ -72,49 +72,3 @@ if (saveWorkout) {
     document.querySelector('#workout-history-modal').classList.toggle('hidden');
   });
 }
-
-
-// i got bored so i made this
-// var timer = setTimeout(function () {
-// var dumbbell = document.createElement('div');
-// dumbbell.innerHTML = 'Are you still there?';
-// dumbbell.style.position = 'absolute';
-// dumbbell.style.left = '0px';
-// dumbbell.style.top = '0px';
-// document.body.appendChild(dumbbell);
-// var x = 0;
-// var y = 0;
-// var direction = 1;
-// var timer = setInterval(function () {
-//   x += direction;
-//   dumbbell.style.left = x + 'px';
-//   if (x > window.innerWidth - 100) {
-//     direction = -1;
-//   } else if (x < 0) {
-//     direction = 1;
-//   }
-// }, 10);
-// document.body.onmousemove = function () {
-//   clearInterval(timer);
-//   document.body.removeChild(dumbbell);
-// };
-
-// /* make the text large */
-// dumbbell.style.fontSize = '100px';
-
-// /* bounce it diagonal */
-// var x = 0;
-// var y = 0;
-// var direction = 1;
-// var timer = setInterval(function () {
-//   x += direction;
-//   y += direction;
-//   dumbbell.style.left = x + 'px';
-//   dumbbell.style.top = y + 'px';
-//   if (x > window.innerWidth - 100) {
-//     direction = -1;
-//   } else if (x < 0) {
-//     direction = 1;
-//   }
-// }, 10);
-// }, 10000);

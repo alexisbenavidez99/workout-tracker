@@ -202,7 +202,7 @@ router.put('/reset-password/:token', (req, res) => {
         .then(() => {
           console.log('Password updated successfully.');
           res.status(200).json({ message: 'Password updated successfully.' });
-          res.render('login');
+          res.redirect('/login');
         })
         .catch((err) => {
           console.error('Error updating password: ', err);

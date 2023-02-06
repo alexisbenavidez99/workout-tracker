@@ -78,6 +78,20 @@
   <div style = "background: #D3D3D3">
   <main class="container container-fluid mt-5">
     <!-- Render the contents of the sub layout here -->
+    <div class="modal" id="errorModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span id=:"closeModal" class="close-modal">&times;</span>
+          <h2>Error</h2>
+        </div>
+        <div id= class="modal-body">
+          <p id="modal-body"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="closeModal">Close</button>
+        </div>
+      </div>
+    </div>
     {{{ body }}}
     <script src="/js/signup.js"></script>
     <script src="/js/exercises.js"></script>

@@ -4,15 +4,15 @@ const modalBody = document.querySelector('#modal-body');
 const closeModal = document.querySelector('#closeModal');
 const closeModal2 = document.querySelector('.close-modal');
 
-const showErrorModal = (message) => {
-  if (!modalBody) {
-    return;
-  }
-  modalBody.textContent = message;
+
+showErrorModal = (message) => {
+  modalBody.innerHTML = message;
+
   errorModal.style.display = 'block';
 };
 
 const hideErrorModal = () => {
+  modalBody.innerHTML = '';
   errorModal.style.display = 'none';
 };
 
@@ -48,7 +48,7 @@ const createProfile = async (username, email) => {
   if (response.ok) {
     sessionStorage.setItem('username', username);
   } else {
-    showErrorModal('Failed to create profile.');
+    showErrorModal("Failed to create profile.");
     return;
   }
 };
@@ -77,6 +77,7 @@ const signupHandler = async (event) => {
     }
   } catch (error) {
     showErrorModal(error.message);
+    return;
   }
 };
 

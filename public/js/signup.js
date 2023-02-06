@@ -86,4 +86,9 @@ const createProfile = async (username, email) => {
     showErrorModal('Failed to create profile.');
     return;
   }
+};
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    signupHandler(event);
+  }
 });

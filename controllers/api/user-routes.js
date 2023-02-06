@@ -201,7 +201,8 @@ router.put('/reset-password/:token', (req, res) => {
         .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
         .then(() => {
           console.log('Password updated successfully.');
-          res.redirect('/login');
+          // go to login page
+          res.render('login');
         })
         .catch((err) => {
           console.error('Error updating password: ', err);

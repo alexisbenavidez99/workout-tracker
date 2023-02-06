@@ -1,6 +1,7 @@
 const { UserProfile, Workout } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
+const { Op } = require('sequelize');
 
 // GET homepage
 router.get('/', (req, res) => {
@@ -117,12 +118,13 @@ router.get('/reset-password/:token', (req, res) => {
       }
 
       dbUserData= dbUserData.get({ plain: true });
-    
 
-  res.render('reset-password', {
-    dbUserData,
-    token: req.params.token,
-  });
+
+      res.render('reset-password', {
+        dbUserData,
+        token: req.params.token,
+      });
+    });
 });
 
 

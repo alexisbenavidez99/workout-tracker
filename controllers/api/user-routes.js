@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 const sendPasswordResetEmail = require('../../utils/email');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const { Op } = require('sequelize');
+
 
 
 //  create a new user
@@ -178,37 +178,26 @@ router.post('/forgot-password', (req, res) => {
 
 // POST route for new password
 // POST route for new password
-router.put('/reset-password/:token', (req, res) => {
- 
-    .then((user) => {
-      console.log('user: ', user);
-      if (!user) {
-        return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
-      }
+router.put('/reset-password/:user', (req, res) => {
+  user - req.params.user;
 
-      // Hash the new password
-      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-      const password = req.body.password;
-      console.log('password: ', password);
-      console.log('hashedPassword: ', hashedPassword);
-      // Update the user's password in the database
-      return user
-        .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
-        .then(() => {
-          console.log('Password updated successfully.');
-          res.status(200).json({ message: 'Password updated successfully.' });
-          res.redirect('/login');
-        })
-        .catch((err) => {
-          console.error('Error updating password: ', err);
-          res.status(500).json(err);
-        });
+
+  // Hash the new password
+  const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+  const password = req.body.password;
+  console.log('password: ', password);
+  console.log('hashedPassword: ', hashedPassword);
+  // Update the user's password in the database
+  User.update({ password: hashedPassword }, { where: { username: user }})
+    .then(() => {
+      res.status(200).json({ message: 'Password updated' });
     })
-    .catch((err) => {
-      console.error('Error finding user: ', err);
+    .catch(err => {
+      console.log(err);
       res.status(500).json(err);
     });
 });
+
 
 
 module.exports = router;

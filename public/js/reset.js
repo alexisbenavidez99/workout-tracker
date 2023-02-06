@@ -4,7 +4,7 @@ if (form) {
   form.addEventListener('submit', async (event) => {
     const passwordInput = document.querySelector('#password').value.trim();
     const confirmPasswordInput = document.querySelector('#confirmPassword').value.trim();
-    const token = document.querySelector('#token').textContent;
+    const user = document.querySelector('#user').textContent.trim();
 
     event.preventDefault();
 
@@ -22,7 +22,7 @@ if (form) {
 
 
     try {
-      const response = await fetch(`/api/users/reset-password/${token}`, {
+      const response = await fetch(`/api/users/reset-password/${user}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

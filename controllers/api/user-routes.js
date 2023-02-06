@@ -84,6 +84,7 @@ router.post('/logout', withAuth, (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+    document.location.replace('/');
   } else {
     res.status(404).json({ message: 'You are not currently logged in' });
   }

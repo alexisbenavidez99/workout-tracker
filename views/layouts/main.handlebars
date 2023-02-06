@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +24,7 @@
   <header class="display-flex justify-space-between align-center p-2">
     <a href="/"><img class="logo" src="/assets/longevity-logo.png" alt=""></a>
     <!-- Navbar -->
+    {{#if loggedIn}}
     <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
       <div class="px-6 w-full flex flex-wrap items-center justify-between">
         <div class="flex items-center">
@@ -46,7 +47,7 @@
 
     <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
 
-      {{#if loggedIn}}
+      
       <ul class="navbar-nav mr-auto lg:flex lg:flex-row sm:hidden " id="navbar-ul">
 
         <li class="nav-item">
@@ -74,6 +75,7 @@
     </nav>
     <!-- Navbar -->
   </header>
+  <div style = "background: #D3D3D3">
   <main class="container container-fluid mt-5">
     <!-- Render the contents of the sub layout here -->
     <div class="modal" id="errorModal">
@@ -99,10 +101,12 @@
     <script src="/js/navbar.js"></script>
     <script src="/js/forgot-password.js"></script>
     <script src="/js/builder.js"></script>
+    <script src="/js/reset.js"></script>
   </main>
   <footer>
 
   </footer>
+  </div>
 </body>
 
 </html>

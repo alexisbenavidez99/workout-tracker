@@ -4,8 +4,10 @@ const modalBody = document.querySelector('#modal-body');
 const closeModal = document.querySelector('#closeModal');
 const closeModal2 = document.querySelector('.close-modal');
 
+
 showErrorModal = (message) => {
   modalBody.innerHTML = message;
+
   errorModal.style.display = 'block';
 };
 
@@ -78,6 +80,7 @@ const signupHandler = async (event) => {
     return;
   }
 };
+
 
 // if (createProfileButton) is falsey redefined to explain the exact scenario
 if (createProfileButton !== null) {

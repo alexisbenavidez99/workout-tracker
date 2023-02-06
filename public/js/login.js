@@ -14,13 +14,12 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    
     if (response.ok) {
       sessionStorage.setItem('username', username);
-      showErrorModal('You are now logged in!');
       document.location.replace(`/profile/${username}`);
     } else {
-      showErrorModal('Failed to log in.');
+      data = await response.json();
+      showErrorModal(data.message);
     }
   }
 };

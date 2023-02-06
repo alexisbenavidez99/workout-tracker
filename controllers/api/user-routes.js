@@ -20,6 +20,12 @@ router.post('/', async (req, res) => {
     if (usernameTaken) {
       return res.status(400).json({ message: 'Username is already in use' });
     }
+    // check if password is at least 8 characters throw error if not
+
+    if (req.body.password.length < 8) {
+      return res.status(400).json({ message: 'Password must be at least 8 characters' });
+    }
+
     // create new user
     const userData = await User.create(req.body);
     req.session.save(() => {

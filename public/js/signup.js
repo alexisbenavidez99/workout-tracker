@@ -4,15 +4,13 @@ const modalBody = document.querySelector('#modal-body');
 const closeModal = document.querySelector('#closeModal');
 const closeModal2 = document.querySelector('.close-modal');
 
-
-showErrorModal = (message) => {
-  modalBody.innerHTML = message;
-
+const showErrorModal = (message) => {
+  modalBody.textContent = message;
   errorModal.style.display = 'block';
+
 };
 
 const hideErrorModal = () => {
-  modalBody.innerHTML = '';
   errorModal.style.display = 'none';
 };
 
@@ -48,7 +46,7 @@ const createProfile = async (username, email) => {
   if (response.ok) {
     sessionStorage.setItem('username', username);
   } else {
-    showErrorModal("Failed to create profile.");
+    showErrorModal('Failed to create profile.');
     return;
   }
 };
@@ -69,15 +67,15 @@ const signupHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (!response.ok) {
-      throw new Error(`${response.status} ${response.statusText}`);
+      data = await response.json();
+      throw new Error(data.message);
     } else {
       showErrorModal('You are now signed up! Logging you in...');
       await createProfile(username, email);
       document.location.replace(`/profile/${username}`);
     }
   } catch (error) {
-    showErrorModal(error.message);
-    return;
+    showErrorModal(data.message);
   }
 };
 

@@ -114,7 +114,6 @@
 
 @media (max-width: 640px) {
     #navbar-ul {
-        /* add class hidden */
         display: none;
     }
   }

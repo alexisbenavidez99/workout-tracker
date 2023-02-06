@@ -178,27 +178,32 @@ router.post('/forgot-password', (req, res) => {
 
 // POST route for new password
 router.put('/reset-password/:token', (req, res) => {
-  try {
-    User.findOne({ where: { passwordResetToken: req.params.token }})
-      .then(user => {
+  User.findOne({
+    where: {
+      passwordResetToken: req.params.token,
+      passwordResetExpires: { [Op.gt]: Date.now() },
+    },
+  })
+    .then((user) => {
+      if (!user) {
+        return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
+      }
 
-        // Hash the new password
-        const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-        const password = req.body.password;
-        console.log('password', password);
-        // Update the user's password in the database
-        return user
-          .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
-          .then(() => {
-            res.status(200).json({ message: 'Password updated successfully.' });
-            res.render('login');
-          });
-      });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+      // Hash the new password
+      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+      const password = req.body.password;
+      console.log('password', password);
+      // Update the user's password in the database
+      return user
+        .update({ password: hashedPassword, passwordResetToken: null, passwordResetExpires: null })
+        .then(() => {
+          res.status(200).json({ message: 'Password updated successfully.' });
+          res.render('login');
+        })
+        .catch((err) => res.status(500).json(err));
+    })
+    .catch((err) => res.status(500).json(err));
 });
-
 
 
 module.exports = router;

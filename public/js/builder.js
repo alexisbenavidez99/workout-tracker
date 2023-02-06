@@ -63,7 +63,7 @@ searchButton.addEventListener('click', () => {
             arrow.style.transform = 'rotate(180deg)';
           }
         });
-        exerciseDesc.style.display = 'none';
+        // exerciseDesc.style.display = 'none';
         exerciseInfo.appendChild(exerciseDesc);
         exerciseDiv.appendChild(exerciseInfo);
         workoutCard.appendChild(exerciseDiv);

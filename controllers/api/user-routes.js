@@ -179,12 +179,7 @@ router.post('/forgot-password', (req, res) => {
 // POST route for new password
 // POST route for new password
 router.put('/reset-password/:token', (req, res) => {
-  User.findOne({
-    where: {
-      passwordResetToken: req.params.token,
-      passwordResetExpires: { [Op.gt]: Date.now() },
-    },
-  })
+ 
     .then((user) => {
       console.log('user: ', user);
       if (!user) {

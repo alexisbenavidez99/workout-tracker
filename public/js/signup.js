@@ -8,8 +8,8 @@ const showErrorModal = (message) => {
   if (!modalBody) {
     return;
   }
+  modalBody.textContent = message;
   errorModal.style.display = 'block';
-  modalBody.innerHTML = message;
 };
 
 const hideErrorModal = () => {

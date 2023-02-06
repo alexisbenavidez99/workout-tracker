@@ -1,6 +1,7 @@
 const { UserProfile, Workout } = require('../models');
 const withAuth = require('../utils/auth');
 const router = require('express').Router();
+const { Op } = require('sequelize');
 
 // GET homepage
 router.get('/', (req, res) => {
@@ -103,9 +104,27 @@ router.get('/forgot-password', (req, res) => {
 
 // reset password route
 router.get('/reset-password/:token', (req, res) => {
-  res.render('reset-password', {
-    token: req.params.token,
-  });
+  // find the user with the token
+  User.findOne({
+    where: {
+      passwordResetToken: req.params.token,
+      passwordResetExpires: { [Op.gt]: Date.now() },
+    },
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
+        return;
+      }
+
+      dbUserData= dbUserData.get({ plain: true });
+
+
+      res.render('reset-password', {
+        dbUserData,
+        token: req.params.token,
+      });
+    });
 });
 
 

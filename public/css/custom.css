@@ -2,6 +2,7 @@
     max-width: 100%;
 }
 
+
 .promo,
 .promo h3,
 .promo a:link,
@@ -113,7 +114,14 @@
 
 @media (max-width: 640px) {
     #navbar-ul {
-        /* add class hidden */
         display: none;
     }
   }
+
+#workoutHistoryModalButton {
+    margin-top: 15px;
+}
+
+#edit-profile {
+    margin-top: 15px;
+}

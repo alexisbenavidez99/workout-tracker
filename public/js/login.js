@@ -6,13 +6,15 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
 
 
-  if (username && password) {
+  if (!username || !password) {
+    showErrorModal('Please fill out all fields.');
+  } else {
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    
     if (response.ok) {
       sessionStorage.setItem('username', username);
       showErrorModal('You are now logged in!');
@@ -32,3 +34,4 @@ document.addEventListener('keydown', (event) => {
     loginFormHandler(event);
   }
 });
+

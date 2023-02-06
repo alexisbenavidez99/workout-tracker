@@ -15,6 +15,7 @@ const sendPasswordResetEmail = (email, token) => {
     to: email,
     subject: 'Password Reset',
     text: `Click the following link to reset your password: https://rocky-thicket-55053.herokuapp.com/reset-password/${token}`
+
   };
 
   try {

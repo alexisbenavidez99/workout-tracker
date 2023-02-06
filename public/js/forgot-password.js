@@ -27,10 +27,10 @@ if (form1) {
       .then(response => {
         if (response.ok) {
           // Show a success message
-          showErrorModal('Password reset email sent. Please check your email.');
+          showErrorModal('If this email exist in our database, you will receive an email shortly.');
         } else {
           // Show an error message
-          showErrorModal('Failed to send password reset email.');
+          showErrorModal('If this email exist in our database, you will receive an email shortly.');
         }
       });
   });

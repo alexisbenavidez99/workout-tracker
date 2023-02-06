@@ -14,7 +14,6 @@ const showErrorModal = (message) => {
 
 const hideErrorModal = () => {
   errorModal.style.display = 'none';
-  modalBody.innerHTML = '';
 };
 
 if (closeModal) {

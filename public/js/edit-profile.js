@@ -7,14 +7,14 @@ const myProfileButton = document.querySelector('#profile');
 const modal = document.querySelector('#myModal');
 
 
-const username= sessionStorage.getItem('username');
+const username = sessionStorage.getItem('username');
 const myProfileHandler = async (event) => {
   event.preventDefault();
   console.log('myProfileHandler');
   document.location.replace(`/profile/${username}`);
 };
 
-if(myProfileButton){
+if (myProfileButton) {
   myProfileButton.addEventListener('click', myProfileHandler);
 }
 
@@ -31,7 +31,7 @@ if (editProfieButton) {
 const closeModals = async (event) => {
   event.preventDefault();
   console.log('close');
-  if(modal){
+  if (modal) {
     modal.style.display = 'none';
   }
 };
@@ -58,13 +58,13 @@ const savedButtonHandler = async (event) => {
 
   const response = await fetch(`/api/users/profile/${username}`, {
     method: 'PUT',
-    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, gender}),
+    body: JSON.stringify({ profile_image, first_name, last_name, nickname, bio, current_weight, height, emergency_contact_number, birthday, gender }),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
     document.location.replace(`/profile/${username}`);
   } else {
-    alert('Failed to update profile.');
+    showErrorModal('Failed to update profile.');
   }
 };
 

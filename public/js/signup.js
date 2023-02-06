@@ -81,6 +81,7 @@ const signupHandler = async (event) => {
   }
 };
 
+
 // if (createProfileButton) is falsey redefined to explain the exact scenario
 if (createProfileButton !== null) {
   createProfileButton.addEventListener('click', signupHandler);

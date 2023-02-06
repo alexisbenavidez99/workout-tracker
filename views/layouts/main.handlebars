@@ -24,6 +24,7 @@
   <header class="display-flex justify-space-between align-center p-2">
     <a href="/"><img class="logo" src="/assets/longevity-logo.png" alt=""></a>
     <!-- Navbar -->
+    {{#if loggedIn}}
     <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
       <div class="px-6 w-full flex flex-wrap items-center justify-between">
         <div class="flex items-center">
@@ -46,7 +47,7 @@
 
     <div class="navbar-collapse collapse grow items-center" id="navbarSupportedContentY">
 
-      {{#if loggedIn}}
+      
       <ul class="navbar-nav mr-auto lg:flex lg:flex-row sm:hidden " id="navbar-ul">
 
         <li class="nav-item">

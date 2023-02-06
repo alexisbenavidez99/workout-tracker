@@ -181,13 +181,13 @@ router.put('/reset-password/:token', (req, res) => {
   User.findOne({
     where: {
       passwordResetToken: req.params.token,
-      passwordResetExpires: { [Op.gt]: Date.now() },
+      // passwordResetExpires: { [Op.gt]: Date.now() },
     },
   })
     .then((user) => {
-      // if (!user) {
-      //   return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
-      // }
+      if (!user) {
+        return res.status(400).json({ message: 'Password reset token is invalid or has expired.' });
+      }
 
       // Hash the new password
       const hashedPassword = bcrypt.hashSync(req.body.password, 10);

@@ -14,7 +14,7 @@ const sendPasswordResetEmail = (email, token) => {
     from: process.env.EMAIL_FROM,
     to: email,
     subject: 'Password Reset',
-    text: `Click the following link to reset your password:   https://rocky-thicket-55053.herokuapp.com/reset-password/reset-password/${token}`
+    text: `Click the following link to reset your password:   https://https://git.heroku.com/obscure-harbor-19594.git/reset-password/reset-password/${token}`
   };
 
   try {

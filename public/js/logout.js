@@ -6,7 +6,7 @@ const logout = async (req, res) => {
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
-    // showErrorModal('You are now logged out.');
+    showErrorModal('You are now logged out.');
     res.redirect('/');
   } else {
 

@@ -70,7 +70,7 @@ const signupHandler = async (event) => {
       data = await response.json();
       throw new Error(data.message);
     } else {
-      showErrorModal('You are now signed up! Logging you in...');
+      // showErrorModal('You are now signed up! Logging you in...');
       await createProfile(username, email);
       document.location.replace(`/profile/${username}`);
     }

@@ -7,7 +7,7 @@ const logout = async (req, res) => {
   });
   if (response.ok) {
     showErrorModal('You are now logged out.');
-    res.redirect('/');
+    document.location.replace('/');
   } else {
 
     showErrorModal('Failed to log out, you are not logged in.');

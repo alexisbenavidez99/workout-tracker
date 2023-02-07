@@ -35,7 +35,7 @@ if (form) {
       }
 
       // Show a success message
-      showErrorModal('Password reset successful. Logging you in...');
+      // showErrorModal('Password reset successful. Logging you in...');
       document.location.replace('/login');
     } catch (error) {
       console.error(error);
